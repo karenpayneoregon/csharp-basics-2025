@@ -1,0 +1,45 @@
+﻿#nullable disable
+using System;
+using System.Collections.Generic;
+using NorthWind2024LocalLibrary.Models;
+
+namespace NorthWind2024LocalLibrary.Models;
+
+public partial class Order
+{
+    public int OrderId { get; set; }
+
+    public int? CustomerIdentifier { get; set; }
+
+    public int? EmployeeId { get; set; }
+
+    public DateOnly OrderDate { get; set; }
+
+    public DateOnly RequiredDate { get; set; }
+
+    public DateOnly ShippedDate { get; set; }
+
+    public DateOnly DeliveredDate { get; set; }
+
+    public int? ShipVia { get; set; }
+
+    public decimal? Freight { get; set; }
+
+    public string ShipAddress { get; set; }
+
+    public string ShipCity { get; set; }
+
+    public string ShipRegion { get; set; }
+
+    public string ShipPostalCode { get; set; }
+
+    public string ShipCountry { get; set; }
+
+    public virtual Customer CustomerIdentifierNavigation { get; set; }
+
+    public virtual Employee Employee { get; set; }
+
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
+    public virtual Shipper ShipViaNavigation { get; set; }
+}

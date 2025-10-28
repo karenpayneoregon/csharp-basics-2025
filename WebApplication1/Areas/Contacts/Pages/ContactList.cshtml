@@ -1,0 +1,73 @@
+﻿@page
+@* @using WebApplication1.Areas.Views.Contacts *@
+@model WebApplication1.Areas.Contacts.Pages.ContactListModel
+
+@{
+    ViewData["Title"] = "ContactList";
+}
+
+@* 
+
+Page was generated using page scaffolding with Entity Framework Core
+
+Karen 
+    * modified to add Bootstrap icons and improve layout
+    * Altered froms showing ContactTypeIdentifier to show ContactTypeIdentifierNavigation.ContactTitle
+*@
+
+<h1>Contacts</h1>
+
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-1"></i>
+        Create New
+    </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].LastName)
+            </th>
+  
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].ContactTypeIdentifierNavigation.ContactTitle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Contact)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactTypeIdentifierNavigation.ContactTitle)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ContactId" title="Edit" class="me-2 text-decoration-none">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a asp-page="./Details" asp-route-id="@item.ContactId" title="Details" class="me-2 text-decoration-none">
+                        <i class="bi bi-info-circle"></i>
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@item.ContactId" title="Delete" class="text-decoration-none text-danger">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

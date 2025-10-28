@@ -1,0 +1,29 @@
+﻿#nullable disable
+
+
+namespace NorthWind2024LocalLibrary.Models;
+
+public partial class Category
+{
+    /// <summary>
+    /// Primary key
+    /// </summary>
+    public int CategoryId { get; set; }
+
+    /// <summary>
+    /// Name of a category
+    /// </summary>
+    public string CategoryName { get; set; }
+
+    /// <summary>
+    /// Description of category
+    /// </summary>
+    public string Description { get; set; }
+
+    /// <summary>
+    /// Image which represents a category
+    /// </summary>
+    public byte[] Picture { get; set; }
+
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+}
