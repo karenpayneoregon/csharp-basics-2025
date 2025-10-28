@@ -1,0 +1,59 @@
+﻿@page
+@model WebApplication1.Areas.Contacts.Pages.ContactEditModel
+@{
+    ViewData["Title"] = "Edit Contact";
+}
+<style>
+    .input-widths {
+        width: 30em;
+    }
+</style>
+
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1 class="mb-3">Edit Contact</h1>
+
+            <form method="post" class="border border-dark-subtle p-3 shadow">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" asp-for="Contact.ContactId"/>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Contact.FirstName" class="form-label"></label>
+                    <input asp-for="Contact.FirstName" class="form-control input-widths"/>
+                    <span asp-validation-for="Contact.FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Contact.LastName" class="form-label"></label>
+                    <input asp-for="Contact.LastName" class="form-control input-widths"/>
+                    <span asp-validation-for="Contact.LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label asp-for="Contact.ContactTypeIdentifier" class="control-label">Contact Type</label>
+                    <select asp-for="Contact.ContactTypeIdentifier" class="form-control input-widths" asp-items="ViewBag.ContactTypeIdentifier"></select>
+                    <span asp-validation-for="Contact.ContactTypeIdentifier"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a asp-page="./ContactList" class="btn btn-secondary">Back to list</a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

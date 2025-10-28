@@ -56,9 +56,11 @@ Karen
                     @Html.DisplayFor(modelItem => item.ContactTypeIdentifierNavigation.ContactTitle)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ContactId" title="Edit" class="me-2 text-decoration-none">
+    
+                    <a href="@Url.Page("./Edit", new { id = item.ContactId })" title="Edit" class="me-2 text-decoration-none">
                         <i class="bi bi-pencil-square"></i>
                     </a>
+
                     <a asp-page="./Details" asp-route-id="@item.ContactId" title="Details" class="me-2 text-decoration-none">
                         <i class="bi bi-info-circle"></i>
                     </a>

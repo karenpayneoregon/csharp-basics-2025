@@ -1,6 +1,8 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using NorthWind2024LocalLibrary.Classes;
 using NorthWind2024LocalLibrary.Data;
+using NorthWind2024LocalLibrary.Validators;
 
 namespace WebApplication1;
 
@@ -12,6 +14,8 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddRazorPages();
+
+        builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
 
         builder.Services.AddDbContext<Context>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
