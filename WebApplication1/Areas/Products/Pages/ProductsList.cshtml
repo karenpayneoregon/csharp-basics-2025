@@ -1,0 +1,94 @@
+﻿@page
+@model WebApplication1.Areas.Products.Pages.ProductsListModel
+
+@{
+    ViewData["Title"] = "ProductsList";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-1"></i>
+        Create New
+    </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].QuantityPerUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].UnitsInStock)
+            </th>
+ 
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Supplier)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Product)
+        {
+            <tr>
+                <td>
+                    @{
+                        if (item.Discontinued)
+                        {
+                            <span class="text-danger fw-bold">@Html.DisplayFor(modelItem => item.ProductName)</span>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.ProductName)   
+                        }
+                    }
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsInStock)
+                </td>
+      
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+                </td>
+                <td>
+
+                    <a href="@Url.Page("./Edit", new { id = item.ProductId })" title="Edit" class="me-2 text-decoration-none">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+
+                    <a asp-page="./Details" asp-route-id="@item.ProductId" title="Details" class="me-2 text-decoration-none">
+                        <i class="bi bi-info-circle"></i>
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@item.ProductId" title="Delete" class="text-decoration-none text-danger">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

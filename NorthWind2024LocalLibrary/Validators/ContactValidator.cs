@@ -4,6 +4,14 @@ using NorthWind2024LocalLibrary.Models;
 namespace NorthWind2024LocalLibrary.Validators;
 public class ContactValidator : AbstractValidator<Contact>
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ContactValidator"/> class.
+    /// </summary>
+    /// <remarks>
+    /// This validator is responsible for validating the properties of the <see cref="Contact"/> model.
+    /// It ensures that required fields such as <see cref="Contact.FirstName"/>, <see cref="Contact.LastName"/>, 
+    /// and <see cref="Contact.ContactTypeIdentifier"/> are properly validated with specific rules.
+    /// </remarks>
     public ContactValidator()
     {
 
