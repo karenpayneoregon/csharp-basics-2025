@@ -11,6 +11,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\EntityFrameworkLibrary\EntityFrameworkLibrary.csproj" />
 		<ProjectReference Include="..\NorthWind2024LocalLibrary\NorthWind2024LocalLibrary.csproj" />
 	</ItemGroup>
 
@@ -47,5 +48,10 @@
 		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
 		<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
 		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\images\" />
 	</ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using EntityFrameworkLibrary;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using NorthWind2024LocalLibrary.Data;
 using NorthWind2024LocalLibrary.Models;
@@ -21,6 +22,7 @@ public class ContactListModel(Context context) : PageModel
     public async Task OnGetAsync()
     {
         Contact = await context.Contacts
+            .TagWithDebugInfo("Fetching all contacts")
             .Include(c => c.ContactTypeIdentifierNavigation)
             .OrderBy(c => c.LastName)
             .ToListAsync();
