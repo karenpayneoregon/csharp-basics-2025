@@ -24,12 +24,21 @@ public class Program
             });
 
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
+        
 
-        builder.Services.AddDbContext<Context>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-            .EnableSensitiveDataLogging()
-            .LogTo(new DbContextToFileLogger().Log));
-
+        if (builder.Environment.IsDevelopment())
+        {
+            builder.Services.AddDbContext<Context>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+                    .EnableSensitiveDataLogging()
+                    .LogTo(new DbContextToFileLogger().Log));
+        }
+        else
+        {
+            builder.Services.AddDbContext<Context>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+                    .LogTo(new DbContextToFileLogger().Log));
+        }
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
