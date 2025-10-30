@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using NorthWind2024LocalLibrary.Classes;
 using NorthWind2024LocalLibrary.Data;
 using NorthWind2024LocalLibrary.Validators;
+using WebApplication1.Classes;
 
 namespace WebApplication1;
 
@@ -12,8 +13,15 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
         builder.Services.AddRazorPages();
+
+        builder.Services
+            .AddRazorPages()
+            .AddMvcOptions(options =>
+            {
+                // Add provider alongside the defaults
+                options.ModelMetadataDetailsProviders.Add(new PascalCaseDisplayMetadataProvider());
+            });
 
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
 
@@ -45,3 +53,4 @@ public class Program
         app.Run();
     }
 }
+

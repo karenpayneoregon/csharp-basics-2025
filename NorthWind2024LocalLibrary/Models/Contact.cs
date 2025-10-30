@@ -11,16 +11,10 @@ public partial class Contact
     /// </summary>
     public int ContactId { get; set; }
 
-    /// <summary>
-    /// First name
-    /// </summary>
-    [Display(Name = "First name")]
+
     public string FirstName { get; set; }
 
-    /// <summary>
-    /// Last name
-    /// </summary>
-    [Display(Name = "Last name")]
+ 
     public string LastName { get; set; }
 
     /// <summary>

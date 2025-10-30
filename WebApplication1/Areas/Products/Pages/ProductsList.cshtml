@@ -29,7 +29,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Product[0].UnitsInStock)
             </th>
- 
+
 
 
             <th>
@@ -53,10 +53,10 @@
                         }
                         else
                         {
-                            @Html.DisplayFor(modelItem => item.ProductName)   
+                            @Html.DisplayFor(modelItem => item.ProductName)
                         }
                     }
-                    
+
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.QuantityPerUnit)
@@ -67,7 +67,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.UnitsInStock)
                 </td>
-      
+
 
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.CategoryName)
