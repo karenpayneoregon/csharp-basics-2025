@@ -26,6 +26,14 @@ namespace NorthWind2024LocalLibrary.Classes
             _fileName = fileName;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DbContextToFileLogger"/> class with a default log file path.
+        /// </summary>
+        /// <remarks>
+        /// The default log file path is determined based on the application's base directory and includes a folder named "LogFiles" 
+        /// with the current date (in the format "YYYY-MM-DD") and a file named "EF_Log.txt".
+        /// This constructor is primarily intended for local development purposes.
+        /// </remarks>
         public DbContextToFileLogger()
         {
             var baseDir = AppDomain.CurrentDomain.BaseDirectory; // OK for local dev
