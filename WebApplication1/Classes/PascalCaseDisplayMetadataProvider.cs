@@ -14,6 +14,19 @@ namespace WebApplication1.Classes;
 /// </remarks>
 public sealed partial class PascalCaseDisplayMetadataProvider : IDisplayMetadataProvider
 {
+    /// <summary>
+    /// Creates and customizes the display metadata for a given model property.
+    /// </summary>
+    /// <param name="context">
+    /// The <see cref="DisplayMetadataProviderContext"/> that provides the context for creating display metadata.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when the <paramref name="context"/> parameter is <c>null</c>.
+    /// </exception>
+    /// <remarks>
+    /// This method modifies the display metadata for properties by formatting their names in a more readable way.
+    /// Specifically, it splits PascalCase property names into separate words, unless a display name is already explicitly provided.
+    /// </remarks>
     public void CreateDisplayMetadata(DisplayMetadataProviderContext context)
     {
         if (context == null) throw new ArgumentNullException(nameof(context));

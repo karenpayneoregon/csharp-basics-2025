@@ -7,7 +7,7 @@ namespace WebApplication1.Classes;
 /// <summary>
 /// Provides extension methods for various utility operations.
 /// </summary>
-public static partial class Extensions
+public static partial class ValidatorExtensions
 {
 
     /// <summary>
