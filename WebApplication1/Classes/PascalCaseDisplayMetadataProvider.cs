@@ -42,6 +42,14 @@ public sealed partial class PascalCaseDisplayMetadataProvider : IDisplayMetadata
         context.DisplayMetadata.DisplayName = () => SplitPascalCase(context.Key.Name ?? string.Empty);
     }
 
+    /// <summary>
+    /// Splits a PascalCase string into separate words by inserting spaces before capital letters.
+    /// </summary>
+    /// <param name="sender">The PascalCase string to be split.</param>
+    /// <returns>
+    /// A string with spaces inserted before capital letters, making the PascalCase string more readable.
+    /// If the input string is null, empty, or consists only of whitespace, it is returned unchanged.
+    /// </returns>
     private static string SplitPascalCase(string sender)
     {
         if (string.IsNullOrWhiteSpace(sender)) return sender;
