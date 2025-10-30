@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkLibrary", "E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console projects", "Console projects", "{9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspCoreHelperLibrary", "AspCoreHelperLibrary\AspCoreHelperLibrary.csproj", "{E9E0011D-4AA5-4B7B-A3C6-392B5DEA227B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{AED0B18A-7E76-47C6-AF36-79907E11B2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AED0B18A-7E76-47C6-AF36-79907E11B2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AED0B18A-7E76-47C6-AF36-79907E11B2DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9E0011D-4AA5-4B7B-A3C6-392B5DEA227B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E0011D-4AA5-4B7B-A3C6-392B5DEA227B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E0011D-4AA5-4B7B-A3C6-392B5DEA227B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E0011D-4AA5-4B7B-A3C6-392B5DEA227B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{82F32EE1-5325-6666-F75B-4EDBFC52FD92} = {5B2A884D-63F5-8209-539F-EFB5871C3AED}
 		{C3B6682A-8159-4E0A-A5A1-D6F0C8EF2E52} = {82F32EE1-5325-6666-F75B-4EDBFC52FD92}
 		{AED0B18A-7E76-47C6-AF36-79907E11B2DE} = {7A4C05E0-4FF7-B8EC-2124-E708496D3B03}
+		{E9E0011D-4AA5-4B7B-A3C6-392B5DEA227B} = {7A4C05E0-4FF7-B8EC-2124-E708496D3B03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92F76479-8CB2-47A3-83B6-C6A1BEB1D29D}

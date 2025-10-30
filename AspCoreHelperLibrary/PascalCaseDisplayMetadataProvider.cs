@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 
-namespace WebApplication1.Classes;
+namespace AspCoreHelperLibrary;
 
 /// <summary>
 /// Provides a custom implementation of <see cref="IDisplayMetadataProvider"/> 

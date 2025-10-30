@@ -11,6 +11,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\AspCoreHelperLibrary\AspCoreHelperLibrary.csproj" />
 		<ProjectReference Include="..\EntityFrameworkLibrary\EntityFrameworkLibrary.csproj" />
 		<ProjectReference Include="..\NorthWind2024LocalLibrary\NorthWind2024LocalLibrary.csproj" />
 	</ItemGroup>
