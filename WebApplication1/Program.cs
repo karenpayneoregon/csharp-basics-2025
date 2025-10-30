@@ -26,19 +26,21 @@ public class Program
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
         
 
-        if (builder.Environment.IsDevelopment())
+        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+        var efFileLogger = new DbContextToFileLogger();
+
+        builder.Services.AddDbContextPool<Context>(options =>
         {
-            builder.Services.AddDbContext<Context>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-                    .EnableSensitiveDataLogging()
-                    .LogTo(new DbContextToFileLogger().Log));
-        }
-        else
-        {
-            builder.Services.AddDbContext<Context>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-                    .LogTo(new DbContextToFileLogger().Log));
-        }
+            options.UseSqlServer(connectionString);
+            options.LogTo(efFileLogger.Log);
+
+            if (builder.Environment.IsDevelopment())
+            {
+                options.EnableSensitiveDataLogging();
+                options.EnableDetailedErrors();
+            }
+        });
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
