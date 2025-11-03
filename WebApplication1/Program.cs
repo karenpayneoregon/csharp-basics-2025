@@ -5,6 +5,8 @@ using NorthWind2024LocalLibrary.Classes;
 using NorthWind2024LocalLibrary.Data;
 using NorthWind2024LocalLibrary.Validators;
 
+using static AspCoreHelperLibrary.WindowHelper;
+
 namespace WebApplication1;
 
 public class Program
@@ -60,6 +62,9 @@ public class Program
         app.MapStaticAssets();
         app.MapRazorPages()
            .WithStaticAssets();
+
+        app.ShowConsoleWindow();
+        app.SetConsoleWindowTitleWindows11("Payne code sample");
 
         app.Run();
     }
