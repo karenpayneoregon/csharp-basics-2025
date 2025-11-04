@@ -1,0 +1,18 @@
+﻿/* Fixed stage spanning from bottom of navbar to top of absolute footer */
+.index-center-fixed {
+    position: fixed;
+    top: var(--nav-h, 0px);
+    bottom: var(--foot-h, 60px);
+    left: 0;
+    right: 0;
+    /* Center the card */
+    display: grid;
+    place-items: center;
+    /* Prevent stray 1px scrollbars on some browsers */
+    overflow: hidden;
+}
+
+/* Make sure margins don’t push it */
+.index-center-fixed > .card {
+    margin: 0;
+}

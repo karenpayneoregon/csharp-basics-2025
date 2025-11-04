@@ -4,16 +4,19 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <div class="alert alert-primary mb-5" role="alert">
-        <h1 class="fs-5">Code sample for learning several topics</h1>
-    </div>
-    
-    <div class="card mx-auto shadow" style="width: 55rem;">
-        <img src="images/efcore.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h2 class="card-title fs-6">About</h2>
-            <p class="card-text">A simple example of using EF Core from a class library and the start of using ASP.NET Core <mark>Areas</mark></p>
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
+<div class="index-center-fixed">
+    <div class="card shadow p-4 bg-primary-subtle" style="width: 22rem;">
+        <img src="images/efcore.png" class="card-img-top" alt="logo">
+        <div class="card-body text-center">
+            <h1 class="card-title fs-4">About</h1>
+            <p class="card-text">
+                A simple example of using EF Core from a class library and the start of using ASP.NET Core <mark>Areas</mark>
+            </p>
+            <a href="https://dotnet.microsoft.com/en-us/apps/aspnet" target="_blank" class="btn btn-primary">Learn More</a>
         </div>
     </div>
 </div>
+
+<script src="~/js/index.js"></script>
