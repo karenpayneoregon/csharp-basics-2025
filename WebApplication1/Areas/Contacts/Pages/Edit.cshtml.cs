@@ -5,12 +5,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NorthWind2024LocalLibrary.Data;
 using NorthWind2024LocalLibrary.Models;
+using Serilog;
 using WebApplication1.Classes;
+using WebApplication1.Models;
 
 namespace WebApplication1.Areas.Contacts.Pages
 {
     public class ContactEditModel(Context context, IValidator<Contact> validator) : PageModel
     {
+        public AlertModalViewModel Alert { get; set; } = new();
+
         [BindProperty]
         public Contact Contact { get; set; } = null!;
 
@@ -37,7 +41,9 @@ namespace WebApplication1.Areas.Contacts.Pages
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+
             var result = await validator.ValidateAsync(Contact);
+            
             if (!result.IsValid)
             {
                 
@@ -53,19 +59,38 @@ namespace WebApplication1.Areas.Contacts.Pages
             {
                 await context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException ce)
             {
                 if (!ContactExists(Contact.ContactId))
                 {
+                    Log.Error(ce, $"Error updating contact {Contact.ContactId}: {ce.Message}");
+                    
+                    DisplayConcurrencyAlert();
+
                     return NotFound();
                 }
                 else
                 {
+                    Log.Error(ce, $"Error updating contact {Contact.ContactId}: {ce.Message}");
                     throw;
                 }
             }
 
             return RedirectToPage("./Index");
+        }
+
+        private void DisplayConcurrencyAlert()
+        {
+            Alert = new AlertModalViewModel
+            {
+                Title = "Concurrency Error",
+                Message = "Another user has modified this record. Please refresh the page and try again.",
+                ButtonText = "OK",
+                CssClass = "btn-danger"
+            };
+
+            ViewData["ShowAlertModal"] = true;
+            
         }
 
         private bool ContactExists(int id)

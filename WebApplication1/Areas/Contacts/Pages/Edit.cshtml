@@ -5,7 +5,7 @@
 }
 <style>
     .input-widths {
-        width: 30em;
+        width: 20em;
     }
 </style>
 
@@ -14,7 +14,7 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-md-6">
+        <div class="col-md-5">
 
             <h1 class="mb-3">Edit Contact</h1>
 
@@ -37,7 +37,11 @@
 
                 <div class="form-group mb-5">
                     <label asp-for="Contact.ContactTypeIdentifier" class="control-label">Contact Type</label>
-                    <select asp-for="Contact.ContactTypeIdentifier" class="form-control input-widths" asp-items="ViewBag.ContactTypeIdentifier"></select>
+                    
+                    <select asp-for="Contact.ContactTypeIdentifier" 
+                            class="form-select input-widths"
+                            asp-items="ViewBag.ContactTypeIdentifier"></select>
+
                     <span asp-validation-for="Contact.ContactTypeIdentifier"></span>
                 </div>
 
@@ -54,6 +58,27 @@
 
 </div>
 
+@{
+    var showModal = ViewData["ShowAlertModal"] as bool? ?? false;
+}
+@if (showModal)
+{
+    <partial name="_AlertModal" model="Model.Alert" />
+}
+
 @section Scripts {
+
     <partial name="_ValidationScriptsPartial" />
+
+    @if (showModal)
+    {
+        <script>
+            (function () {
+                var el = document.getElementById('alertModal');
+                if (el && window.bootstrap) {
+                    new bootstrap.Modal(el).show();
+                }
+            })();
+        </script>
+    }
 }

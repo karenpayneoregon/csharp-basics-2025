@@ -1,0 +1,18 @@
+﻿@model WebApplication1.Models.AlertModalViewModel
+
+<div class="modal fade" id="alertModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Model.Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                @Model.Message
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn @Model.CssClass" data-bs-dismiss="modal">@Model.ButtonText</button>
+            </div>
+        </div>
+    </div>
+</div>
