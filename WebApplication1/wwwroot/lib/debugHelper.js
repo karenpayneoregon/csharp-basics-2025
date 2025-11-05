@@ -1,11 +1,6 @@
 ﻿var $debugHelper = $debugHelper || {};
 $debugHelper = function () {
 
-    /*
-     * Location for styles to outline all elements on the page
-     */
-    var href = "css/debugger.css";
-
     const debugStyleId = "debugger-inline-style";
 
     function addCss() {
