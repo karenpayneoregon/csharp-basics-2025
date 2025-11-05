@@ -1,5 +1,4 @@
 ﻿@page
-@* @using WebApplication1.Areas.Views.Contacts *@
 @model WebApplication1.Areas.Contacts.Pages.ContactListModel
 
 @{
@@ -12,8 +11,10 @@ Page was generated using page scaffolding with Entity Framework Core
 
 Karen 
     * modified to add Bootstrap icons and improve layout
-    * Altered froms showing ContactTypeIdentifier to show ContactTypeIdentifierNavigation.ContactTitle
+    * Altered from showing ContactTypeIdentifier to show ContactTypeIdentifierNavigation.ContactTitle
 *@
+
+<script src="~/lib/debugHelper.js"></script>
 
 <h1>Contacts</h1>
 
@@ -73,3 +74,18 @@ Karen
         }
     </tbody>
 </table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener('keydown', function (event) {
+            if (event.key === '1' && event.altKey && event.ctrlKey) {
+                if (!document.getElementById("debugger-inline-style")) {
+                    $debugHelper.addCss();
+                } else {
+                    $debugHelper.removeCss();
+                }
+            }
+        });
+    });
+
+</script>

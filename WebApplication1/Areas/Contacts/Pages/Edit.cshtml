@@ -9,6 +9,8 @@
     }
 </style>
 
+<script src="~/lib/debugHelper.js"></script>
+
 
 <div class="container mt-5">
 
@@ -64,7 +66,6 @@
 @if (showModal)
 {
     <partial name="~/Areas/Views/Shared/_AlertModal.cshtml" model="Model.Alert" />
-
 }
 
 @section Scripts {
@@ -74,12 +75,27 @@
     @if (showModal)
     {
         <script>
-            (function () {
-                var el = document.getElementById('alertModal');
-                if (el && window.bootstrap) {
-                    new bootstrap.Modal(el).show();
-                }
-            })();
-        </script>
+        (function () {
+            var el = document.getElementById('alertModal');
+            if (el && window.bootstrap) {
+                new bootstrap.Modal(el).show();
+            }
+        })();
+    </script>
     }
 }
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener('keydown', function (event) {
+            if (event.key === '1' && event.altKey && event.ctrlKey) {
+                if (!document.getElementById("debugger-inline-style")) {
+                    $debugHelper.addCss();
+                } else {
+                    $debugHelper.removeCss();
+                }
+            }
+        });
+    });
+
+</script>

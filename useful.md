@@ -1,4 +1,5 @@
 
+- Microsoft :bulb: [C# documentation](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)
 - [Hidden NET 9 gems](https://dev.to/karenpayneoregon/hidden-net-9-gems-3pb4) for Visual Studio
 - [Visual Studio unknown keyboard shortcuts](https://dev.to/karenpayneoregon/visual-studio-unknwn-keyboard-shortcuts-1g3e)
 - [C# System.Text.Json](https://dev.to/karenpayneoregon/c-systemtextjson-37m1)
