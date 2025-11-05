@@ -33,7 +33,6 @@ namespace WebApplication1.Areas.Contacts.Pages
                 return NotFound();
             }
             Contact = contact;
-           //ViewData["ContactTypeIdentifier"] = new SelectList(context.ContactTypes, "ContactTypeIdentifier", "ContactTypeIdentifier");
             return Page();
         }
 
@@ -41,7 +40,6 @@ namespace WebApplication1.Areas.Contacts.Pages
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-
             var result = await validator.ValidateAsync(Contact);
             
             if (!result.IsValid)
@@ -72,30 +70,14 @@ namespace WebApplication1.Areas.Contacts.Pages
                 else
                 {
                     Log.Error(ce, $"Error updating contact {Contact.ContactId}: {ce.Message}");
-                    throw;
+                    
+                    DisplayDoesNotExistsAlert();
+                    
+                    return RedirectToPage("./Index");
                 }
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private void DisplayConcurrencyAlert()
-        {
-            Alert = new AlertModalViewModel
-            {
-                Title = "Concurrency Error",
-                Message = "Another user has modified this record. Please refresh the page and try again.",
-                ButtonText = "OK",
-                CssClass = "btn-danger"
-            };
-
-            ViewData["ShowAlertModal"] = true;
-            
-        }
-
-        private bool ContactExists(int id)
-        {
-            return context.Contacts.Any(e => e.ContactId == id);
         }
 
         /// <summary>
@@ -116,6 +98,54 @@ namespace WebApplication1.Areas.Contacts.Pages
             var (_, contactTypes, _) = SelectOptions.GetDefaultSelections(dbContext);
 
             ViewData["ContactTypeIdentifier"] = new SelectList(contactTypes, nameof(ContactType.ContactTypeIdentifier), nameof(ContactType.ContactTitle));
+        }
+
+        /// <summary>
+        /// Displays a concurrency alert to the user when a concurrency conflict occurs during an update operation.
+        /// </summary>
+        /// <remarks>
+        /// This method sets up an alert modal with a predefined title, message, button text, and CSS class
+        /// to inform the user about the concurrency issue. It also updates the <see cref="ViewData"/> to ensure
+        /// the alert modal is displayed on the page.
+        /// </remarks>
+        private void DisplayConcurrencyAlert()
+        {
+            Alert = new AlertModalViewModel
+            {
+                Title = "Concurrency Error",
+                Message = "Another user has modified this record. Please refresh the page and try again.",
+                ButtonText = "OK",
+                CssClass = "btn-danger"
+            };
+
+            ViewData["ShowAlertModal"] = true;
+            
+        }
+
+        /// <summary>
+        /// Displays an alert modal indicating that the contact no longer exists.
+        /// </summary>
+        /// <remarks>
+        /// This method updates the <see cref="Alert"/> property with details about the error
+        /// and sets the <c>ViewData["ShowAlertModal"]</c> flag to <c>true</c> to trigger the display of the alert modal.
+        /// </remarks>
+        private void DisplayDoesNotExistsAlert()
+        {
+            Alert = new AlertModalViewModel
+            {
+                Title = "Error",
+                Message = "Contact no longer exists.",
+                ButtonText = "OK",
+                CssClass = "btn-danger"
+            };
+
+            ViewData["ShowAlertModal"] = true;
+
+        }
+
+        private bool ContactExists(int id)
+        {
+            return context.Contacts.Any(e => e.ContactId == id);
         }
     }
 }
