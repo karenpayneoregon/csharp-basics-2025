@@ -9,6 +9,7 @@ using Serilog;
 using WebApplication1.Classes;
 using WebApplication1.Models;
 
+
 namespace WebApplication1.Areas.Contacts.Pages
 {
     public class ContactEditModel(Context context, IValidator<Contact> validator) : PageModel
@@ -36,8 +37,24 @@ namespace WebApplication1.Areas.Contacts.Pages
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Handles the HTTP POST request to update a contact's information.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IActionResult"/> representing the result of the operation:
+        /// <list type="bullet">
+        /// <item><description>Returns the current page if validation fails.</description></item>
+        /// <item><description>Redirects to the index page if the update is successful.</description></item>
+        /// <item><description>Returns a 404 status if the contact does not exist.</description></item>
+        /// </list>
+        /// </returns>
+        /// <remarks>
+        /// This method validates the <see cref="Contact"/> model, updates the database if valid, 
+        /// and handles concurrency exceptions during the update process.
+        /// </remarks>
+        /// <exception cref="DbUpdateConcurrencyException">
+        /// Thrown when a concurrency conflict occurs while updating the contact.
+        /// </exception>
         public async Task<IActionResult> OnPostAsync()
         {
             var result = await validator.ValidateAsync(Contact);
@@ -61,15 +78,15 @@ namespace WebApplication1.Areas.Contacts.Pages
             {
                 if (!ContactExists(Contact.ContactId))
                 {
-                    Log.Error(ce, $"Error updating contact {Contact.ContactId}: {ce.Message}");
+                    Log.Error(ce, "Error updating contact {P1}: {P2}", Contact.ContactId, ce.Message);
                     
                     DisplayConcurrencyAlert();
 
-                    return NotFound();
+                    return RedirectToPage("./Index");
                 }
                 else
                 {
-                    Log.Error(ce, $"Error updating contact {Contact.ContactId}: {ce.Message}");
+                    Log.Error(ce, "Error updating contact {P1}: {P2}", Contact.ContactId, ce.Message);
                     
                     DisplayDoesNotExistsAlert();
                     
@@ -104,9 +121,9 @@ namespace WebApplication1.Areas.Contacts.Pages
         /// Displays a concurrency alert to the user when a concurrency conflict occurs during an update operation.
         /// </summary>
         /// <remarks>
-        /// This method sets up an alert modal with a predefined title, message, button text, and CSS class
-        /// to inform the user about the concurrency issue. It also updates the <see cref="ViewData"/> to ensure
-        /// the alert modal is displayed on the page.
+        /// This method configures an alert modal with a predefined title, message, button text, and CSS class
+        /// to notify the user about the concurrency issue.
+        /// It also updates the <see cref="PageModel.ViewData"/> to ensure the alert modal is displayed on the page.
         /// </remarks>
         private void DisplayConcurrencyAlert()
         {
@@ -143,9 +160,13 @@ namespace WebApplication1.Areas.Contacts.Pages
 
         }
 
-        private bool ContactExists(int id)
-        {
-            return context.Contacts.Any(e => e.ContactId == id);
-        }
+        /// <summary>
+        /// Determines whether a contact with the specified identifier exists in the database.
+        /// </summary>
+        /// <param name="id">The unique identifier of the contact to check for existence.</param>
+        /// <returns>
+        /// <c>true</c> if a contact with the specified identifier exists; otherwise, <c>false</c>.
+        /// </returns>
+        private bool ContactExists(int id) => context.Contacts.Any(e => e.ContactId == id);
     }
 }

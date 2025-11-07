@@ -63,6 +63,7 @@
 @{
     var showModal = ViewData["ShowAlertModal"] as bool? ?? false;
 }
+
 @if (showModal)
 {
     <partial name="~/Areas/Views/Shared/_AlertModal.cshtml" model="Model.Alert" />

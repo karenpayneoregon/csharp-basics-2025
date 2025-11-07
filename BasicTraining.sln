@@ -72,6 +72,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Working with SQL Server", "
 		about.md = about.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesApp", "SamplesApp\SamplesApp.csproj", "{0FC4184A-0403-475E-A6C1-86AAE714CC4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -134,6 +136,10 @@ Global
 		{293C3D8B-C190-F0B3-9A20-6D91835D87FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293C3D8B-C190-F0B3-9A20-6D91835D87FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293C3D8B-C190-F0B3-9A20-6D91835D87FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC4184A-0403-475E-A6C1-86AAE714CC4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC4184A-0403-475E-A6C1-86AAE714CC4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC4184A-0403-475E-A6C1-86AAE714CC4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC4184A-0403-475E-A6C1-86AAE714CC4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +162,7 @@ Global
 		{AF792ADF-FD0C-1523-8097-A75D152B06BE} = {109D9969-E038-07E8-8519-F000003837A0}
 		{293C3D8B-C190-F0B3-9A20-6D91835D87FB} = {7A4C05E0-4FF7-B8EC-2124-E708496D3B03}
 		{109D9969-E038-07E8-8519-F000003837A0} = {A301630D-8850-66D6-B95E-512C9000D1CE}
+		{0FC4184A-0403-475E-A6C1-86AAE714CC4F} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92F76479-8CB2-47A3-83B6-C6A1BEB1D29D}
