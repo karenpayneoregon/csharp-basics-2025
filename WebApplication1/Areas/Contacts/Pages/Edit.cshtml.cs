@@ -11,9 +11,7 @@ using Serilog;
 using System.Text.Json;
 using WebApplication1.Classes;
 using WebApplication1.Models;
-using JsonOptions = Microsoft.AspNetCore.Http.Json.JsonOptions;
 
-using MvcJsonOptions = Microsoft.AspNetCore.Mvc.JsonOptions;
 
 namespace WebApplication1.Areas.Contacts.Pages
 {
