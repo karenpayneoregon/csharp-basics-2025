@@ -1,4 +1,3 @@
-using System.Text.Json;
 using AspCoreHelperLibrary;
 using FluentValidation;
 using Microsoft.AspNetCore.Http.Json;
@@ -6,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using NorthWind2024LocalLibrary.Classes;
 using NorthWind2024LocalLibrary.Data;
 using NorthWind2024LocalLibrary.Validators;
-
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using static AspCoreHelperLibrary.WindowHelper;
 
 namespace WebApplication1;
@@ -23,17 +23,16 @@ public class Program
             .AddRazorPages()
             .AddMvcOptions(options =>
             {
-                // Add provider alongside the defaults
+                // split PascalCase property names into separate words for display
                 options.ModelMetadataDetailsProviders.Add(new PascalCaseDisplayMetadataProvider());
             });
 
         builder.Services.Configure<JsonOptions>(options =>
         {
+            // Configure JSON serialization option to indent the output for better readability
             options.SerializerOptions.WriteIndented = true;
         });
-
-
-
+        
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
         
 
