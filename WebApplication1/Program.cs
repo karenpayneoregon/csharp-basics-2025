@@ -1,5 +1,7 @@
+using System.Text.Json;
 using AspCoreHelperLibrary;
 using FluentValidation;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
 using NorthWind2024LocalLibrary.Classes;
 using NorthWind2024LocalLibrary.Data;
@@ -24,6 +26,13 @@ public class Program
                 // Add provider alongside the defaults
                 options.ModelMetadataDetailsProviders.Add(new PascalCaseDisplayMetadataProvider());
             });
+
+        builder.Services.Configure<JsonOptions>(options =>
+        {
+            options.SerializerOptions.WriteIndented = true;
+        });
+
+
 
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
         

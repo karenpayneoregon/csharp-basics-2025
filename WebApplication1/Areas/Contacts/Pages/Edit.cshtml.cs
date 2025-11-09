@@ -1,18 +1,24 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using NorthWind2024LocalLibrary.Data;
 using NorthWind2024LocalLibrary.Models;
 using Serilog;
+using System.Text.Json;
 using WebApplication1.Classes;
 using WebApplication1.Models;
+using JsonOptions = Microsoft.AspNetCore.Http.Json.JsonOptions;
 
+using MvcJsonOptions = Microsoft.AspNetCore.Mvc.JsonOptions;
 
 namespace WebApplication1.Areas.Contacts.Pages
 {
-    public class ContactEditModel(Context context, IValidator<Contact> validator) : PageModel
+    public class ContactEditModel(Context context, IValidator<Contact> validator,
+        IOptions<JsonOptions> jsonOptions) : PageModel
     {
         public AlertModalViewModel Alert { get; set; } = new();
 
@@ -34,9 +40,13 @@ namespace WebApplication1.Areas.Contacts.Pages
                 return NotFound();
             }
             Contact = contact;
+
+            var json = JsonSerializer.Serialize(Contact, jsonOptions.Value.SerializerOptions);
+            Console.WriteLine(json);
             return Page();
         }
 
+        public static JsonSerializerOptions Indented => new() { WriteIndented = true };
         /// <summary>
         /// Handles the HTTP POST request to update a contact's information.
         /// </summary>

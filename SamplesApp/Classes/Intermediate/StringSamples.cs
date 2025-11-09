@@ -1,6 +1,7 @@
 ﻿using CommonHelpersLibrary;
+using Spectre.Console;
 
-namespace SamplesApp.Classes;
+namespace SamplesApp.Classes.Intermediate;
 internal class StringSamples
 {
     /// <summary>
@@ -14,11 +15,22 @@ internal class StringSamples
     public static void JoinExample()
     {
         var names = new[] { "Alice", "Bob", "Charlie", "Diana" };
+        List<string>? names1 = null;
         var numbers = new List<int> { 1, 2, 3 };
         var single = new[] { "OnlyOne" };
         var empty = Array.Empty<string>();
 
         Console.WriteLine(names.JoinWithLastSeparator());
+        
+        if (names1 is not null)
+        {
+            Console.WriteLine(names1.JoinWithLastSeparator());
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[red bold]names1 is null.[/]");
+        }
+        
         Console.WriteLine(numbers.JoinWithLastSeparator(" | ", "or"));
         Console.WriteLine(single.JoinWithLastSeparator());
         Console.WriteLine($"[{empty.JoinWithLastSeparator()}]");
