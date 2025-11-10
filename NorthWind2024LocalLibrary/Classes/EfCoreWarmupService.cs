@@ -16,11 +16,11 @@ public class EfCoreWarmupService(IServiceProvider serviceProvider) : IHostedServ
     {
         using (var scope = serviceProvider.CreateScope())
         {
-            var dbContext = scope.ServiceProvider.GetRequiredService<Context>();
-            _ = dbContext.Model;
+            var context = scope.ServiceProvider.GetRequiredService<Context>();
+            _ = context.Model;
 
             // Execute a simple, lightweight query to warm up query compilation
-            await dbContext.Categories.Take(1).AnyAsync(cancellationToken); 
+            await context.Categories.Take(1).AnyAsync(cancellationToken); 
         }
         
         await Task.CompletedTask;

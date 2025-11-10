@@ -57,11 +57,6 @@ public class Program
             app.UseHsts();
         }
 
-        //using var scope = app.Services.CreateScope();
-        //var context = scope.ServiceProvider.GetRequiredService<Context>();
-        //_ = context.Categories.AsNoTracking().FirstOrDefault();
-
-
         app.UseHttpsRedirection();
 
         app.UseRouting();
