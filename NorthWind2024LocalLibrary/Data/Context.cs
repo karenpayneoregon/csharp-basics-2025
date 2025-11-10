@@ -62,6 +62,14 @@ public partial class Context : DbContext
             entity.Property(e => e.Description)
                 .HasComment("Description of category")
                 .HasColumnType("ntext");
+
+            /*
+             * Karen's note:
+             * image is a deprecated data type in SQL Server,
+             * but it is used here to match the existing database schema.
+             *
+             * Best practice would be to use varbinary(max) instead. 
+             */
             entity.Property(e => e.Picture)
                 .HasComment("Image which represents a category")
                 .HasColumnType("image");
