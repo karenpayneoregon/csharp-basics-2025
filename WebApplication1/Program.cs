@@ -8,6 +8,7 @@ using NorthWind2024LocalLibrary.Validators;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using static AspCoreHelperLibrary.WindowHelper;
+// ReSharper disable InvertIf
 
 namespace WebApplication1;
 
@@ -43,7 +44,9 @@ public class Program
                 options.EnableDetailedErrors();
             }
         });
-        
+
+        builder.Services.AddHostedService<EfCoreWarmupService>();
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -53,6 +56,11 @@ public class Program
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+
+        //using var scope = app.Services.CreateScope();
+        //var context = scope.ServiceProvider.GetRequiredService<Context>();
+        //_ = context.Categories.AsNoTracking().FirstOrDefault();
+
 
         app.UseHttpsRedirection();
 

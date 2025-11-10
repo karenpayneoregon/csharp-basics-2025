@@ -7,6 +7,14 @@ using NorthWind2024LocalLibrary.Models;
 
 namespace WebApplication1.Areas.Contacts.Pages;
 
+/// <summary>
+/// Represents the model for the details page in the Contacts area of the application.
+/// </summary>
+/// <remarks>
+/// This class is responsible for handling the retrieval and display of detailed information
+/// about a specific contact. It interacts with the database context to fetch the required data
+/// and provides it to the Razor page for rendering.
+/// </remarks>
 public class DetailsModel(Context context) : PageModel
 {
 
