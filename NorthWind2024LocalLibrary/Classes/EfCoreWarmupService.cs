@@ -10,18 +10,11 @@ namespace NorthWind2024LocalLibrary.Classes;
 /// and executing a lightweight query. This ensures that query compilation and model initialization
 /// are performed during application startup, improving runtime performance.
 /// </summary>
-public class EfCoreWarmupService : IHostedService
+public class EfCoreWarmupService(IServiceProvider serviceProvider) : IHostedService
 {
-    private readonly IServiceProvider _serviceProvider;
-
-    public EfCoreWarmupService(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
-
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        using (var scope = _serviceProvider.CreateScope())
+        using (var scope = serviceProvider.CreateScope())
         {
             var dbContext = scope.ServiceProvider.GetRequiredService<Context>();
             _ = dbContext.Model;
