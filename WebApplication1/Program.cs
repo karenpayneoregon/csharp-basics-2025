@@ -27,14 +27,7 @@ public class Program
                 options.ModelMetadataDetailsProviders.Add(new PascalCaseDisplayMetadataProvider());
             });
 
-        builder.Services.Configure<JsonOptions>(options =>
-        {
-            // Configure JSON serialization option to indent the output for better readability
-            options.SerializerOptions.WriteIndented = true;
-        });
-        
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
-        
 
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
         var efFileLogger = new DbContextToFileLogger();

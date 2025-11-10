@@ -12,6 +12,8 @@ using System.Text.Json;
 using WebApplication1.Classes;
 using WebApplication1.Models;
 
+using JsonOptions = Microsoft.AspNetCore.Http.Json.JsonOptions;
+
 
 namespace WebApplication1.Areas.Contacts.Pages
 {
