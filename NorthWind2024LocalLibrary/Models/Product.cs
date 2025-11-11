@@ -29,7 +29,7 @@ public partial class Product
 
     public DateTime? DiscontinuedDate { get; set; }
 
-    public int? RowPosition { get; set; }
+    //public int? RowPosition { get; set; }
 
     public virtual Category Category { get; set; }
 

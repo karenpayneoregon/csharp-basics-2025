@@ -25,5 +25,7 @@ public partial class Category
     /// </summary>
     public byte[] Picture { get; set; }
 
+    public byte[] Photo { get; set; }
+
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

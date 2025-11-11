@@ -8,3 +8,7 @@
 ## Optional
 
 :bulb: After the above steps have been completed, in SSMS, under task, you can create a backup of the database for to revert back to the initial state if needed.
+
+## Different scripts
+
+`populateLocalNorthWind2024.sql` was the original but has a minor issue with Picture column data type. So use `populateExpressNorthWind2024.sql` instead.

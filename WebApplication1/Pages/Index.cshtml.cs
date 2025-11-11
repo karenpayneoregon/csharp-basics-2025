@@ -24,6 +24,7 @@ public class IndexModel(Context context, IWebHostEnvironment env) : PageModel
         //var (contacts, contactTypes, countries) = SelectOptions.GetDefaultSelections(context);
         //Debugger.Break();
 
+        var cats = context.Categories.ToList();
         // You can access the injected environment here.
         if (env.IsDevelopment())
         {
