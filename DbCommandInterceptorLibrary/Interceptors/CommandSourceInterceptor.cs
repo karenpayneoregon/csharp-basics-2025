@@ -1,8 +1,6 @@
 ﻿using DbPeekQueryLibrary.LanguageExtensions;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Spectre.Console;
 using System.Data.Common;
-using System.Threading.Channels;
 
 namespace DbCommandInterceptorLibrary.Interceptors;
 

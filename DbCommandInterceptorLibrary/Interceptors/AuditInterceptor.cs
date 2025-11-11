@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
+#nullable disable
+
 namespace DbCommandInterceptorLibrary.Interceptors;
 
 /// <summary>
@@ -97,6 +99,14 @@ public class AuditInterceptor : SaveChangesInterceptor
         }
     }
 
+    /// <summary>
+    /// Represents a model used to compare the original and new values of an entity during database operations.
+    /// </summary>
+    /// <remarks>
+    /// This class is utilized by the <see cref="DbCommandInterceptorLibrary.Interceptors.AuditInterceptor"/> 
+    /// to store and track changes made to entities, including their original values, new values, and the state of the entity 
+    /// (e.g., Added, Modified, or Deleted).
+    /// </remarks>
     private class CompareModel
     {
         public object OriginalValue { get; set; }
