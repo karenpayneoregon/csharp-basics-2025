@@ -1,4 +1,5 @@
 ﻿using DbCommandInterceptorApp1.Classes;
+using DbCommandInterceptorLibrary.Classes;
 using static DbCommandInterceptorApp1.Classes.SpectreConsoleHelpers;
 
 namespace DbCommandInterceptorApp1;

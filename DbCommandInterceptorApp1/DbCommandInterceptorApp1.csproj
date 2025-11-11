@@ -37,6 +37,11 @@
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
 	</ItemGroup>
 
+
+	<ItemGroup>
+	  <ProjectReference Include="..\DbCommandInterceptorLibrary\DbCommandInterceptorLibrary.csproj" />
+	</ItemGroup>
+
 	<ItemGroup>
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

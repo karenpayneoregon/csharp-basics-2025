@@ -1,4 +1,5 @@
 ﻿using EnumHasConversion.Data;
+using EnumHasConversion.Models;
 
 namespace EnumHasConversion.Classes;
 

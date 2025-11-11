@@ -1,11 +1,10 @@
-﻿
-using System.Diagnostics;
-using DbCommandInterceptorApp1.Classes.Configuration;
-using DbCommandInterceptorApp1.Interceptors;
-using DbCommandInterceptorApp1.Models;
+﻿using System.Diagnostics;
+using DbCommandInterceptorLibrary.Classes.Configuration;
+using DbCommandInterceptorLibrary.Interceptors;
+using DbCommandInterceptorLibrary.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DbCommandInterceptorApp1.Data;
+namespace DbCommandInterceptorLibrary.Data;
 
 public class CustomersContext : DbContext
 {

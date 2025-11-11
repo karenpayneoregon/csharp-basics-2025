@@ -1,8 +1,7 @@
-﻿using DbCommandInterceptorApp1.Data;
-using DbCommandInterceptorApp1.Models;
+﻿using DbCommandInterceptorLibrary.Data;
+using DbCommandInterceptorLibrary.Models;
 
-
-namespace DbCommandInterceptorApp1.Classes;
+namespace DbCommandInterceptorLibrary.Classes;
 
 public static partial class CommandSourceSample
 {

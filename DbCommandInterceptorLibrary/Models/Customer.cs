@@ -1,5 +1,5 @@
-﻿namespace DbCommandInterceptorApp1.Models;
-
+﻿namespace DbCommandInterceptorLibrary.Models;
+#nullable disable
 public class Customer
 {
     public int Id { get; set; }

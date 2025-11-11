@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace DbCommandInterceptorApp1.Classes;
+namespace DbCommandInterceptorLibrary.Classes;
 public static class JSonHelper
 {
 

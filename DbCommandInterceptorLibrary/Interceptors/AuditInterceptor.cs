@@ -1,9 +1,9 @@
-﻿using DbCommandInterceptorApp1.Classes;
+﻿using DbCommandInterceptorLibrary.Classes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace DbCommandInterceptorApp1.Interceptors;
+namespace DbCommandInterceptorLibrary.Interceptors;
 
 /// <summary>
 /// Represents an interceptor that audits changes made to the database context during save operations.
@@ -41,7 +41,6 @@ public class AuditInterceptor : SaveChangesInterceptor
         return base.SavingChangesAsync(eventData, result, cancellationToken);
     }
 
-
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
         Inspect(eventData);
@@ -68,7 +67,7 @@ public class AuditInterceptor : SaveChangesInterceptor
                     {
                         OriginalValue = null,
                         NewValue = entry.CurrentValues.ToObject(),
-                        EntityState = EntityState.Added.ToString()
+                        EntityState = nameof(EntityState.Added)
                     });
                     break;
                 case EntityState.Deleted:
@@ -76,7 +75,7 @@ public class AuditInterceptor : SaveChangesInterceptor
                     {
                         OriginalValue = entry.OriginalValues.ToObject(),
                         NewValue = null,
-                        EntityState = EntityState.Deleted.ToString()
+                        EntityState = nameof(EntityState.Deleted)
                     });
                     break;
                 case EntityState.Modified:
@@ -85,7 +84,7 @@ public class AuditInterceptor : SaveChangesInterceptor
                     {
                         OriginalValue = entry.OriginalValues.ToObject(),
                         NewValue = entry.CurrentValues.ToObject(),
-                        EntityState = EntityState.Modified.ToString()
+                        EntityState = nameof(EntityState.Modified)
                     });
 
                     break;

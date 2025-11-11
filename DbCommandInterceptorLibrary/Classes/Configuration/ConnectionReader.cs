@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace DbCommandInterceptorApp1.Classes.Configuration
+namespace DbCommandInterceptorLibrary.Classes.Configuration
 {
     public class ConnectionReader
     {
-        private static IConfiguration _configuration;
+        private static IConfiguration? _configuration;
 
         public static string GetMainConnectionString()
         {
@@ -12,7 +12,7 @@ namespace DbCommandInterceptorApp1.Classes.Configuration
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
-            return _configuration.GetConnectionString("MainConnection");
+            return _configuration.GetConnectionString("MainConnection") ?? "";
         }
     }
 
