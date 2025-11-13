@@ -74,6 +74,24 @@ public class JsonHelpers
                connectionStrings.TryGetProperty("MainConnection", out _);
     }
 
+    /// <summary>
+    /// Determines whether a specified property exists within a given section 
+    /// of the "appsettings.json" file.
+    /// </summary>
+    /// <param name="section">
+    /// The name of the section in the "appsettings.json" file to search within.
+    /// </param>
+    /// <param name="propertyName">
+    /// The name of the property to check for within the specified section.
+    /// </param>
+    /// <returns>
+    /// <c>true</c> if the specified property exists within the given section; 
+    /// otherwise, <c>false</c>.
+    /// </returns>
+    /// <remarks>
+    /// This method is useful for validating the presence of specific configuration 
+    /// properties within a designated section of the application's configuration file.
+    /// </remarks>
 
     public static bool PropertyExists(string section, string propertyName)
     {
