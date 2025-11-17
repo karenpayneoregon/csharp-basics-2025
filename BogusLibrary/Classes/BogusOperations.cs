@@ -7,6 +7,24 @@ namespace BogusLibrary.Classes;
 
 public class BogusOperations
 {
+    /// <summary>
+    /// Generates a list of <see cref="Human"/> objects with randomly populated data.
+    /// </summary>
+    /// <param name="count">
+    /// The number of <see cref="Human"/> objects to generate.
+    /// </param>
+    /// <param name="random">
+    /// A boolean value indicating whether to use a random seed for data generation.
+    /// If <c>false</c>, a fixed seed is used to ensure deterministic results.
+    /// </param>
+    /// <returns>
+    /// A list of <see cref="Human"/> objects populated with realistic, randomized data.
+    /// </returns>
+    /// <remarks>
+    /// This method leverages the Bogus library to generate realistic data for <see cref="Human"/> objects.
+    /// Each generated <see cref="Human"/> includes properties such as name, gender, birthdate, email, 
+    /// social security number, and address.
+    /// </remarks>
     public static List<Human> GenerateHumans(int count, bool random = false)
     {
         if (!random)
