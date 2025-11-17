@@ -13,8 +13,7 @@ public static class DateExtensions
         int age = today.Year - dob.Year;
 
         // If birthday hasn't occurred yet this year, subtract 1
-        if (today.Month < dob.Month ||
-            (today.Month == dob.Month && today.Day < dob.Day))
+        if (today.Month < dob.Month || (today.Month == dob.Month && today.Day < dob.Day))
         {
             age--;
         }
@@ -39,8 +38,7 @@ public static class DateExtensions
         int age = today.Year - value.Year;
 
         // If birthday hasn't occurred yet this year, subtract 1
-        if (today.Month < value.Month ||
-            (today.Month == value.Month && today.Day < value.Day))
+        if (today.Month < value.Month || (today.Month == value.Month && today.Day < value.Day))
         {
             age--;
         }
