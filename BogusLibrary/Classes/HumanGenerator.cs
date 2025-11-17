@@ -5,7 +5,7 @@ using static Bogus.Randomizer;
 
 namespace BogusLibrary.Classes;
 
-public class BogusOperations
+public class HumanGenerator
 {
     /// <summary>
     /// Generates a list of <see cref="Human"/> objects with randomly populated data.
@@ -43,13 +43,11 @@ public class BogusOperations
             .RuleFor(e => e.Email, (f, e) => f.Internet.Email(e.FirstName, e.LastName))
             .RuleFor(c => c.Gender, f => f.PickRandom<Gender>())
             .RuleFor(p => p.SocialSecurityNumber, f => f.Random.Replace("###-##-####").Replace("-",""))
-            .RuleFor(p => p.Address, f => AddressGenerator.Create(1).FirstOrDefault());
-
+            .RuleFor(p => p.Address, f => AddressGenerator.Create().FirstOrDefault());
 
         return faker.Generate(count);
 
     }
-
   
 }
 
