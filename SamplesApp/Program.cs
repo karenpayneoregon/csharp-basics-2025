@@ -1,13 +1,14 @@
 ﻿using BogusLibrary.Classes;
 using BogusLibrary.Models;
 using CommonHelpersLibrary;
+using Spectre.Console;
 
 namespace SamplesApp;
 internal partial class Program
 {
     static void Main(string[] args)
     {
-        IfBirthYearStatement();
+        IfGenderStatement();
         SpectreConsoleHelpers.ExitPrompt();
     }
 
@@ -35,7 +36,14 @@ internal partial class Program
         {
             if (human.Gender == Gender.Female)
             {
-                Console.WriteLine($"Female Name: {human.FirstName} {human.LastName}");
+                if (string.Equals(human.FirstName, "bertha", StringComparison.OrdinalIgnoreCase))
+                {
+                    AnsiConsole.MarkupLine($"[cyan]Found Bertha[/]: {human.FirstName} {human.LastName}");
+                }
+                else
+                {
+                    AnsiConsole.MarkupLine($"[grey]Female Name:[/]: {human.FirstName} {human.LastName}");
+                }
             }
         }
     }
