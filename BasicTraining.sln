@@ -82,6 +82,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbCommandInterceptorApp1", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbCommandInterceptorLibrary", "DbCommandInterceptorLibrary\DbCommandInterceptorLibrary.csproj", "{5D03A378-3996-4629-8C55-8DE1698349D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusLibrary", "BogusLibrary\BogusLibrary.csproj", "{3F4C6849-D720-4470-8BCA-0DF67F2A2881}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -156,6 +158,10 @@ Global
 		{5D03A378-3996-4629-8C55-8DE1698349D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D03A378-3996-4629-8C55-8DE1698349D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D03A378-3996-4629-8C55-8DE1698349D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4C6849-D720-4470-8BCA-0DF67F2A2881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4C6849-D720-4470-8BCA-0DF67F2A2881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4C6849-D720-4470-8BCA-0DF67F2A2881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4C6849-D720-4470-8BCA-0DF67F2A2881}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,6 +188,7 @@ Global
 		{840DE3BF-E249-8920-A6DA-AD9AD585ADDA} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 		{6AD772FF-E5CD-2684-0C0B-A0524A159AB3} = {840DE3BF-E249-8920-A6DA-AD9AD585ADDA}
 		{5D03A378-3996-4629-8C55-8DE1698349D7} = {840DE3BF-E249-8920-A6DA-AD9AD585ADDA}
+		{3F4C6849-D720-4470-8BCA-0DF67F2A2881} = {7A4C05E0-4FF7-B8EC-2124-E708496D3B03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92F76479-8CB2-47A3-83B6-C6A1BEB1D29D}

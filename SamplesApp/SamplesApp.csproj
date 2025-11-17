@@ -33,6 +33,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\BogusLibrary\BogusLibrary.csproj" />
 	  <ProjectReference Include="..\CommonHelpersLibrary\CommonHelpersLibrary.csproj" />
 	  <ProjectReference Include="..\SpectreConsoleLibrary\SpectreConsoleLibrary.csproj" />
 	</ItemGroup>
@@ -50,5 +51,9 @@
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Classes\StatementsBasics\" />
 	</ItemGroup>
 </Project>
