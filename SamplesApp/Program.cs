@@ -1,6 +1,7 @@
 ﻿using BogusLibrary.Classes;
 using BogusLibrary.Models;
 using CommonHelpersLibrary;
+using SamplesApp.Classes.StatementsBasics;
 using Spectre.Console;
 
 namespace SamplesApp;
@@ -9,205 +10,16 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        IfBirthYearStatementBasic();
+        BasicStatements.IfBirthYearStatementBasic();
+
+        foreach (int number in BasicStatements.GetNumbersUpToTenYieldBasic(20))
+        {
+            Console.WriteLine(number);
+        }
+        
         SpectreConsoleHelpers.ExitPrompt();
     }
 
-    private static void DisplayHumanDetails()
-    {
-        SpectreConsoleHelpers.PrintPink();
 
-        List<Human> humans = HumanGenerator.Create(20);
-        foreach (var human in humans)
-        {
-            Console.WriteLine($"Name: {human.FirstName,-20} {human.LastName,-20}{human.Gender,-7}{human.BirthDay:d}  {human.SocialSecurityNumber}");
-            Console.WriteLine($"\t{human.Address.Street}, {human.Address.City}, {human.Address.State} {human.Address.ZipCode}, {human.Address.Country}");
-            SpectreConsoleHelpers.LineSeparator();
-        }
-    }
-
-    /// <summary>
-    /// ✔️ Demonstrates a basic conditional statement to process a list of humans,
-    /// filtering by gender and performing specific actions based on the first name.
-    /// </summary>
-    /// <remarks>
-    /// This method generates a list of humans, filters for females, and checks
-    /// if their first name matches "Bertha" (case-insensitive). If a match is found,
-    /// it prints a specific message; otherwise, it prints a generic message for females.
-    /// </remarks>
-    private static void IfGenderStatementBasic()
-    {
-
-        SpectreConsoleHelpers.PrintPink();
-
-        List<Human> humans = HumanGenerator.Create(20);
-
-        foreach (var human in humans)
-        {
-
-            // Skip if not female
-            if (human.Gender is not Gender.Female) continue;
-
-            if (string.Equals(human.FirstName, "bertha", StringComparison.OrdinalIgnoreCase))
-            {
-                AnsiConsole.MarkupLine($"[cyan]Found Bertha[/]: {human.FirstName} {human.LastName}");
-            }
-            else
-            {
-                AnsiConsole.MarkupLine($"[grey]Female Name:[/]: {human.FirstName} {human.LastName}");
-            }
-
-        }
-    }
-
-    /// <summary>
-    /// Processes a list of <see cref="Human"/> objects, filtering and displaying information 
-    /// about females based on specific conditions.
-    /// </summary>
-    /// <remarks>
-    /// This method generates a list of humans using <see cref="HumanGenerator.Create(int,bool)"/>, 
-    /// filters the list to include only females, and displays formatted messages in the console 
-    /// using <see cref="SpectreConsoleHelpers.PrintPink"/> and <see cref="AnsiConsole.MarkupLine(string)"/>.
-    /// </remarks>
-    private static void IfGenderStatementMedium()
-    {
-        SpectreConsoleHelpers.PrintPink();
-
-        List<Human> humans = HumanGenerator.Create(20);
-
-        foreach (var human in humans)
-        {
-
-            // Skip if not female
-            if (human.Gender is not Gender.Female) continue;
-
-            var message = human switch
-            {
-                { Gender: Gender.Female, FirstName: var firstName }
-                    when firstName.Equals("bertha", StringComparison.OrdinalIgnoreCase)
-                    => $"[cyan]Found Bertha[/]: {human.FirstName} {human.LastName}",
-                { Gender: Gender.Female } => $"[grey]Female Name:[/]: {human.FirstName} {human.LastName}",
-
-                _ => string.Empty
-            };
-
-            if (!string.IsNullOrWhiteSpace(message)) AnsiConsole.MarkupLine(message);
-        }
-    }
-
-    /// <summary>
-    /// Processes a list of humans, identifying specific individuals or groups based on their gender and name.
-    /// </summary>
-    /// <remarks>
-    /// This method generates a list of humans and uses pattern matching to:
-    /// - Identify a specific female named "Bertha" (case-insensitive).
-    /// - Display messages for other females.
-    /// The results are printed to the console using Spectre.Console.
-    /// </remarks>
-    private static void IfGenderStatementAdvance()
-    {
-        SpectreConsoleHelpers.PrintPink();
-
-        List<Human> humans = HumanGenerator.Create(20);
-
-        foreach (var human in humans)
-        {
-            var message = human switch
-            {
-                // Skip if not female check, no continue needed
-                { Gender: Gender.Female, FirstName: var firstName }
-                    when firstName.Equals("bertha", StringComparison.OrdinalIgnoreCase)
-                    => $"[cyan]Found Bertha[/]: {human.FirstName} {human.LastName}",
-
-                { Gender: Gender.Female }
-                    => $"[grey]Female Name:[/]: {human.FirstName} {human.LastName}",
-
-                _ => null
-            };
-
-            if (message is not null)
-                AnsiConsole.MarkupLine(message);
-        }
-    }
-
-    /*
-     * This method demonstrates a compact approach to processing a list of humans but can be harder to read, maintain and debug.
-     */
-    private static void IfGenderStatementCompact() =>
-        HumanGenerator
-            .Create(20)
-            .Select(human => human switch
-            {
-                { Gender: Gender.Female, FirstName: var firstName }
-                    when firstName.Equals("bertha", StringComparison.OrdinalIgnoreCase)
-                    => $"[cyan]Found Bertha[/]: {human.FirstName} {human.LastName}",
-
-                { Gender: Gender.Female }
-                    => $"[grey]Female Name:[/]: {human.FirstName} {human.LastName}",
-
-                _ => null
-            })
-            .Where(msg => msg is not null)
-            .ToList()
-            .ForEach(msg => AnsiConsole.MarkupLine(msg!));
-
-
-    private static void IfBirthYearStatementTeachVersion()
-    {
-        SpectreConsoleHelpers.PrintPink();
-
-        List<Human> humans = HumanGenerator.Create(20);
-
-        foreach (var human in humans)
-        {
-            if (human.BirthDay.HasValue)
-            {
-                var year = human.BirthDay.Value.Year;
-
-                if (year >= 1950 && year <= 1980)
-                {
-                    Console.WriteLine(
-                        $"{human.FirstName,-15}{human.LastName,-15}{human.BirthDay,-12:MM/dd/yyyy}{human.BirthDay.GetAge()}");
-                }
-            }
-        }
-    }
-
-    private static void IfBirthYearStatementBasic()
-    {
-        SpectreConsoleHelpers.PrintPink();
-
-        List<Human> humans = HumanGenerator.Create(20);
-
-        foreach (var human in humans)
-        {
-            if (human.BirthDay.HasValue)
-            {
-                var year = human.BirthDay.Value.Year;
-
-                // middle of the road if statement
-                if (year is >= 1950 and <= 1980)
-                {
-                    Console.WriteLine($"{human.FirstName,-15}{human.LastName,-15}{human.BirthDay,-12:MM/dd/yyyy}{human.BirthDay.GetAge()}");
-                }
-            }
-        }
-    }
-
-    private static void IfBirthYearStatementAdvanced()
-    {
-        SpectreConsoleHelpers.PrintPink();
-
-        List<Human> humans = HumanGenerator.Create(20);
-
-        foreach (var human in humans)
-        {
-            // Pattern matching with property pattern and relational patterns
-            if (human.BirthDay is { Year: >= 1950 and <= 1980 })
-            {
-                Console.WriteLine($"{human.FirstName,-15}{human.LastName,-15}{human.BirthDay,-12:MM/dd/yyyy}{human.BirthDay.GetAge()}");
-            }
-        }
-    }
 }
 
