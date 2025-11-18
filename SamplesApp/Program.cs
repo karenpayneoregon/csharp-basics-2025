@@ -10,16 +10,22 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        BasicStatements.IfBirthYearStatementBasic();
+        //BasicStatements.IfBirthYearStatementBasic();
 
+        SpectreConsoleHelpers.ExitPrompt();
+    }
+
+    private static void YieldSamples()
+    {
         foreach (int number in BasicStatements.GetNumbersUpToTenYieldBasic(20))
         {
             Console.WriteLine(number);
         }
-        
-        SpectreConsoleHelpers.ExitPrompt();
+
+        foreach (var human in BasicStatements.GetFirstMale())
+        {
+            Console.WriteLine($"Name: {human.FirstName} {human.LastName}");
+        }
     }
-
-
 }
 

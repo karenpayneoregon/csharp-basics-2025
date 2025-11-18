@@ -71,6 +71,22 @@ internal class BasicStatements
             
         }
     }
+
+    public static IEnumerable<Human> GetFirstMale()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        List<Human> humans = HumanGenerator.Create(20);
+
+        for (int index = 0; index < humans.Count; index++)
+        {
+            if (humans[index].Gender is not Gender.Male)
+            {
+                yield break;
+            }
+            yield return humans[index];
+        }
+    }
     /// <summary>
     /// ✔️ Demonstrates a basic conditional statement to process a list of humans,
     /// filtering by gender and performing specific actions based on the first name.
