@@ -16,7 +16,7 @@ internal partial class Program
     {
         SpectreConsoleHelpers.PrintPink();
         
-        List<Human> humans = HumanGenerator.GenerateHumans(20);
+        List<Human> humans = HumanGenerator.Create(20);
         foreach (var human in humans)
         {
             Console.WriteLine($"Name: {human.FirstName, -20} {human.LastName,-20}{human.Gender,-7}{human.BirthDay:d}  {human.SocialSecurityNumber}");
@@ -30,21 +30,22 @@ internal partial class Program
 
         SpectreConsoleHelpers.PrintPink();
         
-        List<Human> humans = HumanGenerator.GenerateHumans(20);
+        List<Human> humans = HumanGenerator.Create(20);
 
         foreach (var human in humans)
         {
-            if (human.Gender == Gender.Female)
+            
+            if (human.Gender != Gender.Female) continue;
+            
+            if (string.Equals(human.FirstName, "bertha", StringComparison.OrdinalIgnoreCase))
             {
-                if (string.Equals(human.FirstName, "bertha", StringComparison.OrdinalIgnoreCase))
-                {
-                    AnsiConsole.MarkupLine($"[cyan]Found Bertha[/]: {human.FirstName} {human.LastName}");
-                }
-                else
-                {
-                    AnsiConsole.MarkupLine($"[grey]Female Name:[/]: {human.FirstName} {human.LastName}");
-                }
+                AnsiConsole.MarkupLine($"[cyan]Found Bertha[/]: {human.FirstName} {human.LastName}");
             }
+            else
+            {
+                AnsiConsole.MarkupLine($"[grey]Female Name:[/]: {human.FirstName} {human.LastName}");
+            }
+            
         }
     }
 
@@ -52,7 +53,7 @@ internal partial class Program
     {
         SpectreConsoleHelpers.PrintPink();
         
-        List<Human> humans = HumanGenerator.GenerateHumans(20);
+        List<Human> humans = HumanGenerator.Create(20);
 
         foreach (var human in humans)
         {

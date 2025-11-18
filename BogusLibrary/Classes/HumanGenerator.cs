@@ -25,7 +25,7 @@ public class HumanGenerator
     /// Each generated <see cref="Human"/> includes properties such as name, gender, birthdate, email, 
     /// social security number, and address.
     /// </remarks>
-    public static List<Human> GenerateHumans(int count, bool random = false)
+    public static List<Human> Create(int count, bool random = false)
     {
         if (!random)
         {

@@ -3,6 +3,23 @@
 namespace CommonHelpersLibrary;
 public static class StringExtensions
 {
+
+    public static bool EqualsIgnoreCase(this string source, string target)
+    {
+        
+        if (source == null && target == null)
+        {
+            return true;
+        }
+        
+        if (source == null || target == null)
+        {
+            return false;
+        }
+
+        return source.Equals(target, StringComparison.OrdinalIgnoreCase);
+        
+    }
     /// <summary>
     /// Joins the elements of the specified <paramref name="source"/> collection into a single string, 
     /// using the specified <paramref name="separator"/> between most elements and the specified 
