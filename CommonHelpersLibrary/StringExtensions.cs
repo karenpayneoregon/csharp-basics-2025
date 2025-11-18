@@ -4,6 +4,15 @@ namespace CommonHelpersLibrary;
 public static class StringExtensions
 {
 
+    /// <summary>
+    /// Compares two strings for equality, ignoring case differences.
+    /// </summary>
+    /// <param name="source">The first string to compare. Can be <c>null</c>.</param>
+    /// <param name="target">The second string to compare. Can be <c>null</c>.</param>
+    /// <returns>
+    /// <c>true</c> if both strings are equal ignoring case, or if both are <c>null</c>;
+    /// otherwise, <c>false</c>.
+    /// </returns>
     public static bool EqualsIgnoreCase(this string source, string target)
     {
         
@@ -19,6 +28,25 @@ public static class StringExtensions
 
         return source.Equals(target, StringComparison.OrdinalIgnoreCase);
         
+    }
+
+    /// <summary>
+    /// Determines whether the specified <paramref name="value"/> occurs within the <paramref name="source"/> string, 
+    /// using a case-insensitive comparison.
+    /// </summary>
+    /// <param name="source">The string to search. Can be <c>null</c>.</param>
+    /// <param name="value">The string to locate within <paramref name="source"/>. Can be <c>null</c>.</param>
+    /// <returns>
+    /// <c>true</c> if <paramref name="value"/> is found within <paramref name="source"/> ignoring case; 
+    /// otherwise, <c>false</c>. Returns <c>false</c> if <paramref name="source"/> is <c>null</c>.
+    /// </returns>
+    public static bool ContainsIgnoreCase(this string source, string value)
+    {
+        // Handle null cases for robustness
+        if (source == null) return false; // A null string cannot contain anything
+        if (value == null) return true; // A string can be considered to contain a null or empty string
+
+        return source.IndexOf(value, StringComparison.OrdinalIgnoreCase) >= 0;
     }
     /// <summary>
     /// Joins the elements of the specified <paramref name="source"/> collection into a single string, 
