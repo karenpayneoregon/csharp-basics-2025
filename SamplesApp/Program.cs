@@ -20,16 +20,14 @@ internal partial class Program
         List<Human> humans = HumanGenerator.Create(20);
         foreach (var human in humans)
         {
-            Console.WriteLine(
-                $"Name: {human.FirstName,-20} {human.LastName,-20}{human.Gender,-7}{human.BirthDay:d}  {human.SocialSecurityNumber}");
-            Console.WriteLine(
-                $"\t{human.Address.Street}, {human.Address.City}, {human.Address.State} {human.Address.ZipCode}, {human.Address.Country}");
+            Console.WriteLine($"Name: {human.FirstName,-20} {human.LastName,-20}{human.Gender,-7}{human.BirthDay:d}  {human.SocialSecurityNumber}");
+            Console.WriteLine($"\t{human.Address.Street}, {human.Address.City}, {human.Address.State} {human.Address.ZipCode}, {human.Address.Country}");
             SpectreConsoleHelpers.LineSeparator();
         }
     }
 
     /// <summary>
-    /// Demonstrates a basic conditional statement to process a list of humans,
+    /// ✔️ Demonstrates a basic conditional statement to process a list of humans,
     /// filtering by gender and performing specific actions based on the first name.
     /// </summary>
     /// <remarks>
