@@ -2,6 +2,7 @@
 using BogusLibrary.Models;
 using CommonHelpersLibrary;
 using SamplesApp.Classes.Advance;
+using SamplesApp.Classes.Intermediate;
 using SamplesApp.Classes.StatementsBasics;
 using Spectre.Console;
 
@@ -11,21 +12,13 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        BasicStatements.IfBirthYearStatementBasic();
+        //BasicStatements.IfBirthYearStatementBasic();
+        //WithExpressionSample.ProductsExample1();
+        
         SpectreConsoleHelpers.ExitPrompt();
     }
-
-    private static void YieldSamples()
-    {
-        foreach (int number in BasicStatements.GetNumbersUpToTenYieldBasic(20))
-        {
-            Console.WriteLine(number);
-        }
-
-        foreach (var human in BasicStatements.GetFirstMale())
-        {
-            Console.WriteLine($"Name: {human.FirstName} {human.LastName}");
-        }
-    }
+    
 }
+
+
 
