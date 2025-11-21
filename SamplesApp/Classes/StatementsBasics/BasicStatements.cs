@@ -86,6 +86,7 @@ internal class BasicStatements
             }
             yield return humans[index];
         }
+        
     }
     /// <summary>
     /// ✔️ Demonstrates a basic conditional statement to process a list of humans,
@@ -247,6 +248,7 @@ internal class BasicStatements
         SpectreConsoleHelpers.PrintPink();
 
         List<Human> humans = HumanGenerator.Create(20);
+
 
         foreach (var human in humans)
         {

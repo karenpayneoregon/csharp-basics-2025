@@ -12,7 +12,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        //BasicStatements.IfBirthYearStatementBasic();
+        BasicStatements.IfBirthYearStatementBasic();
         
         SpectreConsoleHelpers.ExitPrompt();
     }
