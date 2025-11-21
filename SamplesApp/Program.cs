@@ -13,7 +13,6 @@ internal partial class Program
     static void Main(string[] args)
     {
         //BasicStatements.IfBirthYearStatementBasic();
-        //WithExpressionSample.ProductsExample1();
         
         SpectreConsoleHelpers.ExitPrompt();
     }
