@@ -22,6 +22,7 @@ public class ContactListModel(Context context) : PageModel
     public async Task OnGetAsync()
     {
         Contact = await context.Contacts
+            .AsNoTracking()
             .TagWithDebugInfo("Fetching all contacts") // in EntityFrameworkLibrary.csproj
             .Include(c => c.ContactTypeIdentifierNavigation)
             .OrderBy(c => c.LastName)
