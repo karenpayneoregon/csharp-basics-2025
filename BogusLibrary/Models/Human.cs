@@ -17,6 +17,9 @@ public class Human : INotifyPropertyChanged
     private DateTime? _birthDay;
     public DateTime? BirthDay { get => _birthDay; set => SetField(ref _birthDay, value); }
     
+    private DateOnly _birthDate;
+    public DateOnly BirthDate { get => _birthDate; set => SetField(ref _birthDate, value); }
+
     private string _email;
     public string Email { get => _email; set => SetField(ref _email, value); }
     

@@ -33,6 +33,7 @@ public class Program
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();
 
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+        
         var efFileLogger = new DbContextToFileLogger();
 
         builder.Services.AddDbContextPool<Context>(options =>

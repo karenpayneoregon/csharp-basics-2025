@@ -5,6 +5,14 @@ using static Bogus.Randomizer;
 
 namespace BogusLibrary.Classes;
 
+/// <summary>
+/// Provides functionality for generating realistic, randomized <see cref="Human"/> objects.
+/// </summary>
+/// <remarks>
+/// This class utilizes the Bogus library to create <see cref="Human"/> objects with properties such as 
+/// name, gender, birthdate, email, social security number, and address. It supports generating a 
+/// specified number of <see cref="Human"/> objects with either deterministic or randomized data.
+/// </remarks>
 public class HumanGenerator
 {
     /// <summary>
@@ -32,6 +40,7 @@ public class HumanGenerator
             Seed = new Random(338);
         }
 
+        var today = DateTime.Now;
         var id = 1;
 
         var faker = new Faker<Human>()
@@ -39,7 +48,8 @@ public class HumanGenerator
             .RuleFor(u => u.Gender, f => f.PickRandom<Gender>())
             .RuleFor(c => c.FirstName, (f, u) => f.Name.FirstName((Name.Gender?)u.Gender))
             .RuleFor(c => c.LastName, f => f.Name.LastName())
-            .RuleFor(c => c.BirthDay, f => f.Person.DateOfBirth)
+            .RuleFor(c => c.BirthDay, f => f.Date.Between(new DateTime(1900, 1, 1), today))
+            .RuleFor(c => c.BirthDate, f => f.Date.BetweenDateOnly(new DateOnly(1900, 1, 1), new DateOnly(today.Year, today.Month, today.Day)))
             .RuleFor(e => e.Email, (f, e) => f.Internet.Email(e.FirstName, e.LastName))
             .RuleFor(c => c.Gender, f => f.PickRandom<Gender>())
             .RuleFor(p => p.SocialSecurityNumber, f => f.Random.Replace("###-##-####").Replace("-",""))
