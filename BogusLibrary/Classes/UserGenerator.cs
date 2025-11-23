@@ -32,13 +32,12 @@ public static class UserGenerator
         if (count <= 0)
             return [];
 
-        Randomizer.Seed = !random ? new Random(12345) : null;
+        Seed = !random ? new Random(338) : null;
 
         var faker = new Faker<User>()
             .StrictMode(true)
             .RuleFor(u => u.Id, f => f.IndexFaker + 1)
-            // Full name; switch to UserName() if you prefer login-style names
-            .RuleFor(u => u.Name, f => f.Name.FullName())
+            .RuleFor(u => u.Name, f => f.Internet.UserName())
             // Stronger password: longer, non-memorable, randomized
             .RuleFor(u => u.Password, f => f.Internet.Password(12, false));
 
