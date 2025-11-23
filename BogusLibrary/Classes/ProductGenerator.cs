@@ -29,7 +29,7 @@ public class ProductGenerator
     public static List<Products> Create(int count, bool random = false)
     {
         if (count <= 0)
-            return new List<Products>();
+            return [];
 
         // Seed control for reproducibility vs full randomness
         Seed = !random ? new Random(338) : null;

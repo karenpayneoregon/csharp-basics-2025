@@ -14,34 +14,33 @@ namespace BogusLibrary.Classes;
 public static class UserGenerator
 {
     /// <summary>
-    /// Generates a list of <see cref="User"/> objects with realistic, randomized data.
+    /// Generates a list of <see cref="User"/> objects with randomized data.
     /// </summary>
     /// <param name="count">
-    /// The number of <see cref="User"/> objects to generate.
+    /// The number of <see cref="User"/> objects to generate. Must be greater than zero.
     /// </param>
     /// <param name="random">
-    /// A boolean value indicating whether to use a random seed for data generation.
-    /// If <c>false</c>, a fixed seed is used to ensure deterministic results.
+    /// A boolean value indicating whether to use non-deterministic randomization.
+    /// If set to <c>false</c>, a fixed seed is used for deterministic results.
     /// </param>
     /// <returns>
     /// A list of <see cref="User"/> objects populated with realistic, randomized data.
+    /// Returns an empty list if <paramref name="count"/> is less than or equal to zero.
     /// </returns>
-    /// <remarks>
-    /// This method leverages the Bogus library to generate realistic data for <see cref="User"/> objects.
-    /// Each generated <see cref="User"/> includes properties such as ID, name, and password.
-    /// </remarks>
     public static List<User> Create(int count, bool random = false)
     {
         if (count <= 0)
-            return new List<User>();
+            return [];
 
-        Seed = !random ? new Random(338) : null;
+        Randomizer.Seed = !random ? new Random(12345) : null;
 
         var faker = new Faker<User>()
             .StrictMode(true)
             .RuleFor(u => u.Id, f => f.IndexFaker + 1)
+            // Full name; switch to UserName() if you prefer login-style names
             .RuleFor(u => u.Name, f => f.Name.FullName())
-            .RuleFor(u => u.Password, f => f.Internet.Password());
+            // Stronger password: longer, non-memorable, randomized
+            .RuleFor(u => u.Password, f => f.Internet.Password(12, false));
 
         return faker.Generate(count);
     }
