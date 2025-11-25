@@ -38,7 +38,6 @@ public static class UserGenerator
             .StrictMode(true)
             .RuleFor(u => u.Id, f => f.IndexFaker + 1)
             .RuleFor(u => u.Name, f => f.Internet.UserName())
-            // Stronger password: longer, non-memorable, randomized
             .RuleFor(u => u.Password, f => f.Internet.Password(12, false));
 
         return faker.Generate(count);

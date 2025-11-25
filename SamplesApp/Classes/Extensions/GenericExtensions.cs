@@ -69,29 +69,3 @@ public static class GenericExtensions
         => new EllipsisNumericFormattable<T>(sender, width, paddingChar);
 
 }
-
-public readonly struct EllipsisNumericFormattable<T> : IFormattable where T : struct, IFormattable
-{
-    private readonly T _value;
-    private readonly int _width;
-    private readonly char _paddingChar;
-
-    public EllipsisNumericFormattable(T value, int width, char paddingChar)
-    {
-        _value = value;
-        _width = width;
-        _paddingChar = paddingChar;
-    }
-
-    public string ToString(string? format, IFormatProvider? formatProvider)
-    {
-        // Apply numeric formatting first (e.g., format “C”)
-        string formatted = _value.ToString(format, formatProvider) ?? "";
-
-        // Then apply Ellipsis padding
-        return formatted.Ellipsis(_width, _paddingChar);
-    }
-
-    public override string ToString()
-        => ToString(null, null);
-}
