@@ -1,6 +1,7 @@
-﻿using System.Runtime.CompilerServices;
-using CommonHelpersLibrary;
+﻿using CommonHelpersLibrary;
 using Spectre.Console;
+using System.Runtime.CompilerServices;
+using System.Text;
 #pragma warning disable CS8604 // Possible null reference argument.
 
 namespace SpectreConsoleLibrary;
@@ -66,6 +67,15 @@ public static class SpectreConsoleHelpers
     /// <returns></returns>
     public static string ConsoleRemove(this string sender)
         => Markup.Remove(sender);
+
+    /// <summary>
+    /// Configures the console to support UTF-8 encoding for input and output, enabling the use of emojis.
+    /// </summary>
+    public static void UseEmojis()
+    {
+        Console.OutputEncoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+        Console.InputEncoding = Encoding.UTF8;
+    }
 
 
 }

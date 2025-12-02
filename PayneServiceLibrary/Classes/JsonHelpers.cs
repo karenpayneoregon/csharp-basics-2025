@@ -68,8 +68,8 @@ public class JsonHelpers
     /// </remarks>
     public static bool MainConnectionExists()
     {
-        string jsonContent = File.ReadAllText(FileName);
-        using JsonDocument doc = JsonDocument.Parse(jsonContent);
+        var jsonContent = File.ReadAllText(FileName);
+        using var doc = JsonDocument.Parse(jsonContent);
         return doc.RootElement.TryGetProperty("ConnectionStrings", out JsonElement connectionStrings) && 
                connectionStrings.TryGetProperty("MainConnection", out _);
     }
@@ -95,8 +95,8 @@ public class JsonHelpers
 
     public static bool PropertyExists(string section, string propertyName)
     {
-        string jsonContent = File.ReadAllText(FileName);
-        using JsonDocument doc = JsonDocument.Parse(jsonContent);
+        var jsonContent = File.ReadAllText(FileName);
+        using var doc = JsonDocument.Parse(jsonContent);
         return doc.RootElement.TryGetProperty(section, out JsonElement sectionElement) &&
                sectionElement.TryGetProperty(propertyName, out _);
     }

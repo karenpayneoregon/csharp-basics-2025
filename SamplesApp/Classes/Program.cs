@@ -21,6 +21,7 @@ internal partial class Program
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
 
         SetupLogging.Development();
+        SpectreConsoleHelpers.UseEmojis();
         Setup();
 
     }

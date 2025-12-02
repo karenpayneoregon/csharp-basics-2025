@@ -39,6 +39,7 @@ namespace WebApplication1.Areas.Contacts.Pages
             {
                 return NotFound();
             }
+            
             Contact = contact;
 
             var json = JsonSerializer.Serialize(Contact, jsonOptions.Value.SerializerOptions);

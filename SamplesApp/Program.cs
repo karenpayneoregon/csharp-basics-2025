@@ -1,6 +1,6 @@
-﻿using Spectre.Console;
-using SamplesApp.Classes.Extensions;
+﻿using SamplesApp.Classes.Extensions;
 using SamplesApp.Classes.StatementsBasics;
+using Spectre.Console;
 
 namespace SamplesApp;
 
@@ -10,11 +10,13 @@ internal partial class Program
     {
         BasicStatements.IfBirthYearStatementTeachVersion();
 
+        Console.WriteLine();
+        
         int intValue = 12;
-        Console.WriteLine(intValue.Clamp(1, 10));
+        AnsiConsole.MarkupLine($":diamond_with_a_dot:     int clamp {intValue.Clamp(1, 10)}");
 
         decimal decimalValue = 15.5m;
-        Console.WriteLine(decimalValue.Clamp(1, 12));
+        AnsiConsole.MarkupLine($":diamond_with_a_dot: decimal clamp {decimalValue.Clamp(1, 12)}");
 
         SpectreConsoleHelpers.ExitPrompt();
     }
