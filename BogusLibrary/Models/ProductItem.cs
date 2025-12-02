@@ -16,6 +16,13 @@ public class ProductItem
     public decimal? UnitPrice { get; set; }
     public override string ToString() => Name;
 
+    /// <summary>
+    /// Defines an implicit conversion from a <see cref="Products"/> instance to a <see cref="ProductItem"/> instance.
+    /// </summary>
+    /// <param name="product">The <see cref="Products"/> instance to convert.</param>
+    /// <returns>
+    /// A new <see cref="ProductItem"/> instance with values mapped from the specified <see cref="Products"/> instance.
+    /// </returns>
     public static implicit operator ProductItem(Products product) =>
         new()
         {

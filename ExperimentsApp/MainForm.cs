@@ -1,10 +1,6 @@
 #pragma warning disable CS0219 // Variable is assigned but its value is never used
 using ExperimentsApp.Classes;
 using ExperimentsApp.Classes.Presentation;
-using System.Diagnostics;
-using System.IO.Hashing;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace ExperimentsApp;
 
