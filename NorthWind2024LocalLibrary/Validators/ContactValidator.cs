@@ -8,37 +8,37 @@ public class ContactValidator : AbstractValidator<Contact>
     /// Initializes a new instance of the <see cref="ContactValidator"/> class.
     /// </summary>
     /// <remarks>
-    /// This validator is responsible for validating the properties of the <see cref="Contact"/> model.
-    /// It ensures that required fields such as <see cref="Contact.FirstName"/>, <see cref="Contact.LastName"/>, 
-    /// and <see cref="Contact.ContactTypeIdentifier"/> are properly validated with specific rules.
+    /// This constructor defines validation rules for the <see cref="Contact"/> model.
+    /// It includes specific rule sets for different contexts, such as "EditPage" and "CreatePage".
+    /// The rules ensure that properties like <see cref="Contact.FirstName"/>, <see cref="Contact.LastName"/>, 
+    /// and <see cref="Contact.ContactTypeIdentifier"/> meet the required criteria.
     /// </remarks>
     public ContactValidator()
     {
+        
+        RuleSet("EditPage", () =>
+        {
+            Include(new FirstNameValidator());
+            Include(new LastNameValidator());
+        });
 
-        // FirstName
-        RuleFor(c => c.FirstName)
-            .NotEmpty()
-            .WithMessage("First name is required.")
-            .MaximumLength(50)
-            .WithMessage("First name must not exceed 50 characters.");
+        RuleSet("CreatePage", () =>
+        {
+            Include(new FirstNameValidator());
+            Include(new LastNameValidator());
 
-        // LastName
-        RuleFor(c => c.LastName)
-            .NotEmpty()
-            .WithMessage("Last name is required.")
-            .MaximumLength(50)
-            .WithMessage("Last name must not exceed 50 characters.");
+            RuleFor(c => c.ContactTypeIdentifier)
+                .NotNull()
+                .WithMessage("Contact type is required.")
+                .GreaterThan(0)
+                .WithMessage("Contact type identifier must be greater than zero.");
 
-        // ContactTypeIdentifier
-        RuleFor(c => c.ContactTypeIdentifier)
-            .NotNull()
-            .WithMessage("Contact type is required.")
-            .GreaterThan(0)
-            .WithMessage("Contact type identifier must be greater than zero.");
 
-        // ContactType navigation (optional check)
-        RuleFor(c => c.ContactTypeIdentifierNavigation)
-            .NotNull()
-            .WithMessage("A valid contact type must be associated.");
+            RuleFor(c => c.ContactTypeIdentifierNavigation)
+                .NotNull()
+                .WithMessage("A valid contact type must be associated.");
+        });
+
     }
 }
+

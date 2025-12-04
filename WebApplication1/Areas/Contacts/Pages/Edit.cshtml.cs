@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,8 +16,7 @@ using JsonOptions = Microsoft.AspNetCore.Http.Json.JsonOptions;
 
 namespace WebApplication1.Areas.Contacts.Pages
 {
-    public class ContactEditModel(Context context, IValidator<Contact> validator,
-        IOptions<JsonOptions> jsonOptions) : PageModel
+    public class ContactEditModel(Context context, IValidator<Contact> validator, IOptions<JsonOptions> jsonOptions) : PageModel
     {
         public AlertModalViewModel Alert { get; set; } = new();
 
@@ -68,7 +66,7 @@ namespace WebApplication1.Areas.Contacts.Pages
         /// </exception>
         public async Task<IActionResult> OnPostAsync()
         {
-            var result = await validator.ValidateAsync(Contact);
+            var result = await validator.ValidateAsync(Contact, options => options.IncludeRuleSets("EditPage"));
             
             if (!result.IsValid)
             {
@@ -93,7 +91,7 @@ namespace WebApplication1.Areas.Contacts.Pages
                     
                     DisplayConcurrencyAlert();
 
-                    return RedirectToPage("./Index");
+                    return RedirectToPage("./ContactList");
                 }
                 else
                 {
@@ -101,11 +99,11 @@ namespace WebApplication1.Areas.Contacts.Pages
                     
                     DisplayDoesNotExistsAlert();
                     
-                    return RedirectToPage("./Index");
+                    return RedirectToPage("./ContactList");
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./ContactList");
         }
 
         /// <summary>

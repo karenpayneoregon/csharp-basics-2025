@@ -119,7 +119,7 @@ partial class MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(625, 469);
+        ClientSize = new Size(625, 265);
         Controls.Add(groupBox1);
         Controls.Add(RawSqlButton);
         Name = "MainForm";
