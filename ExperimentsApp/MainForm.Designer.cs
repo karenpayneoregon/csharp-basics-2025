@@ -37,6 +37,7 @@ partial class MainForm
         groupBox1 = new GroupBox();
         HashedTextBox = new TextBox();
         DivideByZeroButton = new Button();
+        AnonymousToTypeButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -44,7 +45,7 @@ partial class MainForm
         // 
         RawSqlButton.Location = new Point(27, 12);
         RawSqlButton.Name = "RawSqlButton";
-        RawSqlButton.Size = new Size(116, 29);
+        RawSqlButton.Size = new Size(179, 29);
         RawSqlButton.TabIndex = 0;
         RawSqlButton.Text = "Raw SQL";
         RawSqlButton.UseVisualStyleBackColor = true;
@@ -103,7 +104,7 @@ partial class MainForm
         groupBox1.Controls.Add(HashCheckTextBox);
         groupBox1.Controls.Add(HashOriginalTextBox);
         groupBox1.Controls.Add(HashingButton);
-        groupBox1.Location = new Point(19, 89);
+        groupBox1.Location = new Point(19, 191);
         groupBox1.Name = "groupBox1";
         groupBox1.Size = new Size(594, 135);
         groupBox1.TabIndex = 6;
@@ -120,17 +121,28 @@ partial class MainForm
         // 
         DivideByZeroButton.Location = new Point(27, 54);
         DivideByZeroButton.Name = "DivideByZeroButton";
-        DivideByZeroButton.Size = new Size(116, 29);
+        DivideByZeroButton.Size = new Size(179, 29);
         DivideByZeroButton.TabIndex = 7;
         DivideByZeroButton.Text = "DivideByZero";
         DivideByZeroButton.UseVisualStyleBackColor = true;
         DivideByZeroButton.Click += DivideByZeroButton_Click;
         // 
+        // AnonymousToTypeButton
+        // 
+        AnonymousToTypeButton.Location = new Point(37, 101);
+        AnonymousToTypeButton.Name = "AnonymousToTypeButton";
+        AnonymousToTypeButton.Size = new Size(169, 29);
+        AnonymousToTypeButton.TabIndex = 8;
+        AnonymousToTypeButton.Text = "Anonymous to Type";
+        AnonymousToTypeButton.UseVisualStyleBackColor = true;
+        AnonymousToTypeButton.Click += AnonymousToTypeButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(625, 265);
+        ClientSize = new Size(625, 388);
+        Controls.Add(AnonymousToTypeButton);
         Controls.Add(DivideByZeroButton);
         Controls.Add(groupBox1);
         Controls.Add(RawSqlButton);
@@ -153,4 +165,5 @@ partial class MainForm
     private GroupBox groupBox1;
     private TextBox HashedTextBox;
     private Button DivideByZeroButton;
+    private Button AnonymousToTypeButton;
 }

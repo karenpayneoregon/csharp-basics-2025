@@ -15,6 +15,7 @@ internal class Program
         Console.ReadLine();
     }
 
+    
     private static void GenerateAndProcessData()
     {
         var list = HumanGenerator.Create(3);

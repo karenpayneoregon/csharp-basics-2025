@@ -1,5 +1,6 @@
 #pragma warning disable CS0219 // Variable is assigned but its value is never used
 using ExperimentsApp.Classes;
+using ExperimentsApp.Classes.Configuration;
 using ExperimentsApp.Classes.Presentation;
 
 namespace ExperimentsApp;
@@ -9,6 +10,13 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+
+        Shown += MainForm_Shown;
+    }
+
+    private void MainForm_Shown(object? sender, EventArgs e)
+    {
+        var connection = DataConnections.Instance.MainConnection;
     }
 
     private void RawSqlButton_Click(object sender, EventArgs e)
@@ -57,5 +65,10 @@ public partial class MainForm : Form
     private void DivideByZeroButton_Click(object sender, EventArgs e)
     {
         ExceptionExamples.ExampleUsage(this);
+    }
+
+    private void AnonymousToTypeButton_Click(object sender, EventArgs e)
+    {
+        MemberOperations.GroupedMembers(MemberOperations.MembersList());
     }
 }
