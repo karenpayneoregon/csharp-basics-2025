@@ -20,20 +20,15 @@ public class ContactValidator : AbstractValidator<Contact>
         {
             Include(new FirstNameValidator());
             Include(new LastNameValidator());
+            Include(new ContactTypeIdentifierValidator());
         });
 
         RuleSet("CreatePage", () =>
         {
             Include(new FirstNameValidator());
             Include(new LastNameValidator());
-
-            RuleFor(c => c.ContactTypeIdentifier)
-                .NotNull()
-                .WithMessage("Contact type is required.")
-                .GreaterThan(0)
-                .WithMessage("Contact type identifier must be greater than zero.");
-
-
+            Include(new ContactTypeIdentifierValidator());
+            
             RuleFor(c => c.ContactTypeIdentifierNavigation)
                 .NotNull()
                 .WithMessage("A valid contact type must be associated.");

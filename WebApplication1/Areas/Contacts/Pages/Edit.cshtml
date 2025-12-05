@@ -7,9 +7,18 @@
     .input-widths {
         width: 15em;
     }
+
+    .required::after {
+        content: " (required)";
+        font-weight: bold;
+        color: crimson;
+    }
 </style>
 
 <script src="~/lib/debugHelper.js"></script>
+
+
+@* has two require markers *@
 
 
 <div class="container mt-5">
@@ -23,24 +32,59 @@
             <form method="post" class="border border-dark-subtle p-3 shadow">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <input type="hidden" asp-for="Contact.ContactId"/>
+                <input type="hidden" asp-for="Contact.ContactId" />
 
-                <div class="form-group mb-3">
-                    <label asp-for="Contact.FirstName" class="form-label"></label>
-                    <input asp-for="Contact.FirstName" class="form-control input-widths"/>
-                    <span asp-validation-for="Contact.FirstName" class="text-danger"></span>
+                <div class="form-group">
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <label asp-for="Contact.FirstName" class="required"></label>
+                        </div>
+@*                         <div>
+                            <span style="color: crimson;font-weight: bold">Required</span>
+                        </div> *@
+                    </div>
+
+                    <input asp-for="Contact.FirstName"
+                           class="form-control mb-2"
+                           placeholder="Enter first name"
+                           aria-label="First name" required />
+
+                    <span asp-validation-for="Contact.FirstName" class="text-bg-dark fw-bold"></span>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label asp-for="Contact.LastName" class="form-label"></label>
-                    <input asp-for="Contact.LastName" class="form-control input-widths"/>
-                    <span asp-validation-for="Contact.LastName" class="text-danger"></span>
+                <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <label asp-for="Contact.LastName" class="required"></label>
+                        </div>
+@*                         <div>
+                            <span style="color: crimson;font-weight: bold">Required</span>
+                        </div> *@
+                    </div>
+
+                    <input asp-for="Contact.LastName"
+                           class="form-control mb-2"
+                           placeholder="Enter last name"
+                           aria-label="Last name" required />
+
+                    <span asp-validation-for="Contact.LastName" class="text-bg-dark fw-bold"></span>
                 </div>
+
 
                 <div class="form-group mb-5">
-                    <label asp-for="Contact.ContactTypeIdentifier" class="control-label">Contact Type</label>
-                    
-                    <select asp-for="Contact.ContactTypeIdentifier" 
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <label asp-for="Contact.ContactTypeIdentifier" class="required">Contact Type</label>
+                        </div>
+@*                         <div>
+                            <span style="color: crimson;font-weight: bold">Required</span>
+                        </div> *@
+                    </div>
+
+
+                    <select asp-for="Contact.ContactTypeIdentifier"
                             class="form-select input-widths"
                             asp-items="ViewBag.ContactTypeIdentifier"></select>
 
@@ -76,13 +120,13 @@
     @if (showModal)
     {
         <script>
-        (function () {
-            var el = document.getElementById('alertModal');
-            if (el && window.bootstrap) {
-                new bootstrap.Modal(el).show();
-            }
-        })();
-    </script>
+            (function () {
+                var el = document.getElementById('alertModal');
+                if (el && window.bootstrap) {
+                    new bootstrap.Modal(el).show();
+                }
+            })();
+        </script>
     }
 }
 

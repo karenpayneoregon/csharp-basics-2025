@@ -14,10 +14,6 @@ public partial class MainForm : Form
     private void RawSqlButton_Click(object sender, EventArgs e)
     {
 
-
-
-
-
         string statement =
             """
             SELECT Cust.CustomerIdentifier,
@@ -31,11 +27,6 @@ public partial class MainForm : Form
             OFFSET 100 ROWS 
             FETCH NEXT 10 ROWS ONLY;
             """;
-
-
-
-
-
 
     }
 
