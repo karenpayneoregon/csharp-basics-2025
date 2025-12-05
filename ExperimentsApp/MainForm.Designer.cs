@@ -36,14 +36,15 @@ partial class MainForm
         label2 = new Label();
         groupBox1 = new GroupBox();
         HashedTextBox = new TextBox();
+        DivideByZeroButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // RawSqlButton
         // 
-        RawSqlButton.Location = new Point(27, 39);
+        RawSqlButton.Location = new Point(27, 12);
         RawSqlButton.Name = "RawSqlButton";
-        RawSqlButton.Size = new Size(94, 29);
+        RawSqlButton.Size = new Size(116, 29);
         RawSqlButton.TabIndex = 0;
         RawSqlButton.Text = "Raw SQL";
         RawSqlButton.UseVisualStyleBackColor = true;
@@ -115,11 +116,22 @@ partial class MainForm
         HashedTextBox.Size = new Size(580, 27);
         HashedTextBox.TabIndex = 6;
         // 
+        // DivideByZeroButton
+        // 
+        DivideByZeroButton.Location = new Point(27, 54);
+        DivideByZeroButton.Name = "DivideByZeroButton";
+        DivideByZeroButton.Size = new Size(116, 29);
+        DivideByZeroButton.TabIndex = 7;
+        DivideByZeroButton.Text = "DivideByZero";
+        DivideByZeroButton.UseVisualStyleBackColor = true;
+        DivideByZeroButton.Click += DivideByZeroButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(625, 265);
+        Controls.Add(DivideByZeroButton);
         Controls.Add(groupBox1);
         Controls.Add(RawSqlButton);
         Name = "MainForm";
@@ -140,4 +152,5 @@ partial class MainForm
     private Label label2;
     private GroupBox groupBox1;
     private TextBox HashedTextBox;
+    private Button DivideByZeroButton;
 }

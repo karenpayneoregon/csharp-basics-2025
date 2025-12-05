@@ -37,7 +37,7 @@ public partial class MainForm : Form
         byte[] hash = HashUtility.HashString(HashOriginalTextBox.Text);
         string hashHex = Convert.ToHexString(hash);
         HashedTextBox.Text = hashHex;
-        
+
 
         // Validate 
         bool matches = HashUtility.ValidateString(HashCheckTextBox.Text, hash);
@@ -54,4 +54,8 @@ public partial class MainForm : Form
 
     }
 
+    private void DivideByZeroButton_Click(object sender, EventArgs e)
+    {
+        ExceptionExamples.ExampleUsage(this);
+    }
 }
