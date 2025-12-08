@@ -28,15 +28,16 @@ public class MemberOperations
     /// For converting to strong type
     /// </summary>
     /// <param name="list">The list of members to group.</param>
-    public static void GroupedMembers(IEnumerable<Member> list)
+    public static void GroupedMembersExample(IEnumerable<Member> list)
     {
+        
         var grouped = list
             .Where(member => member.Active)
             .GroupBy(member => (member.Name, member.Surname))
             .Select(item => new { item.Key, Members = item.ToList() })
             .ToList();
-        
-        
+
+
         foreach (var group in grouped)
         {
             Debug.WriteLine($"Group: {group.Key.Name} {group.Key.Surname}");
@@ -45,6 +46,23 @@ public class MemberOperations
                 Debug.WriteLine($"  - ID: {member.Id}, Active: {member.Active}");
             }
         }
-        
+
     }
+
+    /// <summary>
+    /// Groups active members by their name and surname into a strongly-typed list.
+    /// </summary>
+    /// <param name="list">The list of <see cref="Member"/> objects to group.</param>
+    /// <returns>
+    /// A <see cref="List{T}"/> of <see cref="GroupedMembers"/> objects, 
+    /// where each group contains members with the same name and surname.
+    /// </returns>
+    public static List<GroupedMembers> GroupedMembersStrongTypedExample(IEnumerable<Member> list)
+    => list
+        .Where(member => member.Active)
+        .GroupBy(member => (member.Name, member.Surname))
+        .Select(x => new GroupedMembers(x.Key, x.ToList()))
+        .ToList();
+
+
 }

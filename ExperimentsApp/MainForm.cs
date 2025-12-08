@@ -2,6 +2,8 @@
 using ExperimentsApp.Classes;
 using ExperimentsApp.Classes.Configuration;
 using ExperimentsApp.Classes.Presentation;
+using System.Diagnostics;
+using ExperimentsApp.Models;
 
 namespace ExperimentsApp;
 
@@ -22,7 +24,7 @@ public partial class MainForm : Form
     private void RawSqlButton_Click(object sender, EventArgs e)
     {
 
-        string statement =
+        var statement =
             """
             SELECT Cust.CustomerIdentifier,
                 Cust.CompanyName,
@@ -69,6 +71,18 @@ public partial class MainForm : Form
 
     private void AnonymousToTypeButton_Click(object sender, EventArgs e)
     {
-        MemberOperations.GroupedMembers(MemberOperations.MembersList());
+        List<GroupedMembers> grouped = MemberOperations
+            .GroupedMembersStrongTypedExample(
+                MemberOperations.MembersList()
+                );
+
+        foreach (var group in grouped)
+        {
+            Debug.WriteLine($"Group: {group.Key.Name} {group.Key.Surname}");
+            foreach (var member in group.Members)
+            {
+                Debug.WriteLine($"    ID: {member.Id}, Active: {member.Active}");
+            }
+        }
     }
 }

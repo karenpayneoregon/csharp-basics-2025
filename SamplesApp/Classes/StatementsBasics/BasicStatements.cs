@@ -84,10 +84,13 @@ internal class BasicStatements
             {
                 yield break;
             }
+            
             yield return humans[index];
+            
         }
         
     }
+
     /// <summary>
     /// ✔️ Demonstrates a basic conditional statement to process a list of humans,
     /// filtering by gender and performing specific actions based on the first name.
