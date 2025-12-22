@@ -86,6 +86,32 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusLibrary", "BogusLibrar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{AC31F554-DB2D-4FBB-983D-592A251F879E}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SampleTrees", "SampleTrees\", "{5D698108-5BDD-FA54-C7B3-D372036BE3C5}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51457"
+		Debug.AspNetCompiler.PhysicalPath = "SampleTrees\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51457\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51457"
+		Release.AspNetCompiler.PhysicalPath = "SampleTrees\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51457\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51457"
+		SlnRelativePath = "SampleTrees\"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asynchronous", "Asynchronous", "{557E87EB-119E-AD28-5F9F-664D16CE5F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchronousExamples", "AsynchronousExamples\AsynchronousExamples.csproj", "{C91A9575-1816-407C-AE5E-10C67B2F22DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -168,6 +194,14 @@ Global
 		{AC31F554-DB2D-4FBB-983D-592A251F879E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC31F554-DB2D-4FBB-983D-592A251F879E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC31F554-DB2D-4FBB-983D-592A251F879E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D698108-5BDD-FA54-C7B3-D372036BE3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D698108-5BDD-FA54-C7B3-D372036BE3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D698108-5BDD-FA54-C7B3-D372036BE3C5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D698108-5BDD-FA54-C7B3-D372036BE3C5}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C91A9575-1816-407C-AE5E-10C67B2F22DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C91A9575-1816-407C-AE5E-10C67B2F22DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C91A9575-1816-407C-AE5E-10C67B2F22DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C91A9575-1816-407C-AE5E-10C67B2F22DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -196,6 +230,9 @@ Global
 		{5D03A378-3996-4629-8C55-8DE1698349D7} = {840DE3BF-E249-8920-A6DA-AD9AD585ADDA}
 		{3F4C6849-D720-4470-8BCA-0DF67F2A2881} = {7A4C05E0-4FF7-B8EC-2124-E708496D3B03}
 		{AC31F554-DB2D-4FBB-983D-592A251F879E} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
+		{5D698108-5BDD-FA54-C7B3-D372036BE3C5} = {3588ACDD-3F02-A08B-F78E-3577485DAF72}
+		{557E87EB-119E-AD28-5F9F-664D16CE5F67} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
+		{C91A9575-1816-407C-AE5E-10C67B2F22DE} = {557E87EB-119E-AD28-5F9F-664D16CE5F67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92F76479-8CB2-47A3-83B6-C6A1BEB1D29D}

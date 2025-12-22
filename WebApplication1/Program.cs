@@ -28,6 +28,8 @@ public class Program
             {
                 // split PascalCase property names into separate words for display
                 options.ModelMetadataDetailsProviders.Add(new PascalCaseDisplayMetadataProvider());
+                // append asterisk to required fields
+                //options.ModelMetadataDetailsProviders.Add(new RequiredAsteriskMetadataProvider());
             });
 
         builder.Services.AddValidatorsFromAssemblyContaining<ContactValidator>();

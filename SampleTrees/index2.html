@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TODO</title>
+
+    <link href="Lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Lib/stick.css" rel="stylesheet" />
+    <script src="lib/debugHelper.js"></script>
+
+    <!--suppress no favicon-->
+    <link rel="shortcut icon" href="#">
+
+    <!-- styles are here temp and once okay move to a .css file(s) -->
+    <style>
+    </style>
+
+</head>
+<body>
+
+
+    <main>
+
+        <div class="container">
+            <div>
+
+                <ul class="tree">
+
+                    <!-- Root node (Category) -->
+                    <li>
+                        <div class="sticky">Manager</div>
+                        <ul>
+
+                            <!-- Sub category -->
+                            <li><div class="sticky">Birds</div></li> <!-- Second level node -->
+                            <li>
+                                <div class="sticky">Mammals</div>
+             
+                            </li>
+                            <li><div class="sticky">Reptiles</div></li>
+                            <li><div class="sticky">Birds</div></li>
+                            <li>
+                                <div class="sticky">Mammals</div>
+                           </li>
+                            <li><div class="sticky">Reptiles</div></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded",
+            () => {
+
+
+                /*
+                 * Provides the ability to add outlines to every single element on a page
+                 * Usage: Pass true to toggle for development environment, false for other environments
+                 * To invoke, press ALT+CTRL+1 which toggles adding/removing debugger.css
+                */
+                document.addEventListener('keydown',
+                    function (event) {
+
+                        if (event.key === '1' && event.altKey && event.ctrlKey) {
+                            // this is for development environment
+                            $debugHelper.toggle(true);
+                        }
+
+
+                    });
+
+
+            });
+
+    </script>
+
+
+</body>
+</html>

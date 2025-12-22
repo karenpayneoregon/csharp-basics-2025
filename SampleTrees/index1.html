@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TODO</title>
+
+    <link href="Lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Lib/styles/headers.css" rel="stylesheet" />
+
+    <script src="lib/debugHelper.js"></script>
+
+    <!--suppress no favicon-->
+    <link rel="shortcut icon" href="#">
+
+    <!--
+        https://gist.github.com/dylancwood/7368914
+
+        https://codepen.io/Hojy/pen/OzXbvp
+        -->
+    <!-- styles are here temp and once okay move to a .css file(s) -->
+    <style>
+        ul.tree, ul.tree ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            ul.tree ul {
+                margin-left: 10px;
+            }
+
+            ul.tree li {
+                margin: 0;
+                padding: 0 7px;
+                line-height: 20px;
+                color: #369;
+                font-weight: bold;
+                border-left: 1px solid rgb(100,100,100);
+            }
+
+                ul.tree li:last-child {
+                    border-left: none;
+                }
+
+                ul.tree li:before {
+                    position: relative;
+                    top: -0.3em;
+                    height: 1em;
+                    width: 12px;
+                    color: white;
+                    border-bottom: 1px solid rgb(100,100,100);
+                    content: "";
+                    display: inline-block;
+                    left: -7px;
+                }
+
+                ul.tree li:last-child:before {
+                    border-left: 1px solid rgb(100,100,100);
+                }
+    </style>
+
+</head>
+<body>
+
+
+    <main>
+
+        <div class="container">
+            <div class="mt-lg-5">
+                <ul class="tree">
+                    <li>Animals 1</li>
+                    <li>Animals 2</li>
+
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="clear"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded",
+            () => {
+
+
+                /*
+                 * Provides the ability to add outlines to every single element on a page
+                 * Usage: Pass true to toggle for development environment, false for other environments
+                 * To invoke, press ALT+CTRL+1 which toggles adding/removing debugger.css
+                */
+                document.addEventListener('keydown',
+                    function (event) {
+
+                        if (event.key === '1' && event.altKey && event.ctrlKey) {
+                            // this is for development environment
+                            $debugHelper.toggle(true);
+                        }
+
+
+                    });
+
+
+            });
+
+    </script>
+
+
+</body>
+</html>

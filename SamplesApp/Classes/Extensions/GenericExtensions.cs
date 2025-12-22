@@ -11,6 +11,9 @@ public static class GenericExtensions
     public static bool IsOdd<T>(this T sender) where T : INumber<T>
         => T.IsOddInteger(sender);
 
+    public static T Max<T>(this T sender, T other) where T : INumber<T>
+        => T.Max(sender, other);
+
     /// <summary>
     /// Clamps a value to a specified range defined by a minimum and maximum value.
     /// </summary>

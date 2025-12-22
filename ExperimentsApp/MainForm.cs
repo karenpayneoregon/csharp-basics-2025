@@ -76,6 +76,10 @@ public partial class MainForm : Form
                 MemberOperations.MembersList()
                 );
 
+        if (grouped.Count > 0)
+        {
+            
+        }
         foreach (var group in grouped)
         {
             Debug.WriteLine($"Group: {group.Key.Name} {group.Key.Surname}");

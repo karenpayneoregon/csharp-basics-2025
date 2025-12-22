@@ -1,5 +1,8 @@
-﻿using SamplesApp.Classes.Extensions;
+﻿using SamplesApp.Classes.Basics;
+using SamplesApp.Classes.Extensions;
+using SamplesApp.Classes.Intermediate;
 using SamplesApp.Classes.StatementsBasics;
+using SamplesApp.Models;
 using Spectre.Console;
 using System.Globalization;
 
@@ -13,7 +16,17 @@ internal partial class Program
         //ClampedValues();
         //IsEvenDemo();
 
+        //var values = MockedData.GetDecimals().OrderByDescending(x => x);
+        //foreach (var value in values)
+        //{
+        //    Console.WriteLine(value);
+        //}
 
+        SwitchSamples.Greeting();
+        Console.WriteLine();
+        SwitchSamples.GradesTuple();
+        Console.WriteLine();
+        SwitchSamples.GroupBook();
 
         SpectreConsoleHelpers.ExitPrompt();
     }
@@ -23,7 +36,7 @@ internal partial class Program
         var months = DateTimeFormatInfo.CurrentInfo.MonthNames[..^1].ToList();
 
         AnsiConsole.MarkupLine("[cyan]Cyan[/] are even");
-        
+
         int count = 0;
         foreach (var (index, monthName) in months.Index())
         {
@@ -52,6 +65,9 @@ internal partial class Program
         AnsiConsole.MarkupLine($":diamond_with_a_dot: decimal clamp {decimalValue.Clamp(1, 12)}");
     }
 }
+
+
+
 
 
 

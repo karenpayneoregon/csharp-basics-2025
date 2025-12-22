@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "Name": "Alice",
+    "IsActive": true
+  },
+  {
+    "Id": 2,
+    "Name": "Bob",
+    "IsActive": false
+  },
+  {
+    "Id": 3,
+    "Name": "Carol",
+    "IsActive": true
+  },
+  {
+    "Id": 4,
+    "Name": "David",
+    "IsActive": true
+  },
+  {
+    "Id": 5,
+    "Name": "Evelyn",
+    "IsActive": false
+  },
+  {
+    "Id": 6,
+    "Name": "Frank",
+    "IsActive": true
+  },
+  {
+    "Id": 7,
+    "Name": "Grace",
+    "IsActive": true
+  },
+  {
+    "Id": 8,
+    "Name": "Henry",
+    "IsActive": false
+  },
+  {
+    "Id": 9,
+    "Name": "Irene",
+    "IsActive": true
+  },
+  {
+    "Id": 10,
+    "Name": "Jack",
+    "IsActive": true
+  }
+]

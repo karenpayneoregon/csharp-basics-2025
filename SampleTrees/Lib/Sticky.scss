@@ -1,0 +1,124 @@
+// typography
+// ----------
+$font-stack: normal normal 13px/1.4 Segoe,"Segoe UI",Calibri,Helmet,FreeSans,Sans-Serif;
+
+// colors
+// ------
+$background-color: white; // all backgrounds
+$connector-color: #369; // connectors and text
+$shadow-color: #8F949A;
+$box-color: #afafaf; // box border
+
+// major dimensions
+// ----------------
+$tree-margin-left: 0px;
+
+$entry-height: 3em; // total hight of entry: card + gap on top
+
+$card-ident: 2em; // card horizontal ident (to nearest connector)
+$card-height: 1.5em;
+$card-width: 15em; // 'auto' is acceptable
+$card-padding-top: ($card-height - 1em)/2;
+$card-padding-side: $card-padding-top * 2;
+
+$hconnector-top: 1em;
+
+// =================== Don't edit below this line ========================
+
+$card-margin-top: $entry-height - $card-height; // card vertical gap
+$connector-vident: ($entry-height)/2 + $card-margin-top - 1.5em;
+$tree-ident: $card-width; // connector horizontal ident (to card's front)
+
+$background-color-presudo: $background-color; //for dev: beige;
+$box-shadow: 1px 1px 4px $shadow-color;
+$width-presudo: 0px;
+
+body {
+    background: $background-color;
+    font: $font-stack;
+}
+
+// All of the magic inside .tree
+.tree {
+    & ul {
+        margin: 0 0 0 $tree-ident; // whole tree indentation TODO:
+        padding: 0;
+        list-style: none;
+        color: $connector-color;
+        position: relative;
+    }
+
+    &:before, ul:before {
+        content: "";
+        display: block;
+        width: $width-presudo;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        border-left: 1px solid; // vertical connectors
+        background: $background-color-presudo; // same with body background
+        z-index: -1;
+    }
+
+    & li {
+        font-weight: bold;
+        line-height: $entry-height;
+        margin: 0;
+        padding: $card-margin-top 0 0 $card-ident; // indentation + .5em
+        position: relative;
+        z-index: -1;
+
+        &:before {
+            border-top: 1px solid;
+            content: "";
+            display: block;
+            height: 100%;
+            left: 0;
+            margin-top: $hconnector-top; // border top width
+            position: absolute;
+            top: $connector-vident; // (line-height/2)
+            width: $card-ident; // same with indentation
+        }
+
+        &:last-child:before {
+            background: $background-color-presudo; // same with body background
+            bottom: 0;
+            height: auto;
+            top: $connector-vident; // (line-height/2)
+        }
+    }
+
+    & > li:before {
+        border-top: none !important;
+    }
+
+    & li div {
+        border-radius: 5px;
+        border: 1px solid $box-color;
+        margin: 0;
+        max-width: $card-width;
+        min-width: $card-width;
+        padding: $card-padding-top $card-padding-side;
+        background: $background-color;
+        box-shadow: $box-shadow;
+        color: $connector-color;
+        font-weight: bold;
+    }
+}
+
+// Espasially for root level ul
+ul.tree {
+    margin-left: $tree-margin-left; // Set ident for the root ul (whole tree ident)
+    &:before {
+        border-left: none; // Remove left border for the root ul
+    }
+}
+
+// Put it to sticky divs
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+}

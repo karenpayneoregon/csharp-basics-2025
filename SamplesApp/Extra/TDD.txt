@@ -1,0 +1,8 @@
+//List<Customer> customers = new List<Customer>
+//{
+//    new Customer { Id = 1, fName = "Karen",  lName = "Jones" },
+//    new Customer { Id = 2, fName = "Yelena", lName = "Adams" },
+//    new Customer { Id = 3, fName = "Bill",   lName = "Gates" },
+//    new Customer { Id = 3, fName = "Bick",   lName = "Smith" },
+//    new Customer { Id = 4, fName = "Lisa",   lName = "Simpson" }
+//};
