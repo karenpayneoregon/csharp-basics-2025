@@ -1,7 +1,11 @@
-﻿using AsynchronousExamples.Classes;
+﻿using System.Globalization;
+using AsynchronousExamples.Classes;
 using AsynchronousExamples.Classes.Configuration;
 using Serilog;
 using Spectre.Console;
+using System.Reflection;
+using System.Runtime.Versioning;
+#pragma warning disable CS8604 // Possible null reference argument.
 
 namespace AsynchronousExamples;
 internal partial class Program
@@ -9,9 +13,18 @@ internal partial class Program
     static async Task Main(string[] args)
     {
         await Task.Delay(0);
+
         //await ProcessNumbersWithCancellationAsync();
         //await ProcessJsonFileAsync("data.json");
-
+        
+        Version? frameworkVersion = Assembly.GetEntryAssembly().GetTargetFrameworkVersion();
+        if (frameworkVersion is not null)
+        {
+            Console.WriteLine(frameworkVersion);
+        }else
+        {
+            Console.WriteLine("Could not determine the target framework version.");
+        }
 
         SpectreConsoleHelpers.ExitPrompt();
     }

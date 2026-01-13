@@ -2,6 +2,7 @@
 using ConsoleHelperLibrary.Classes;
 using Microsoft.Extensions.DependencyInjection;
 using SamplesApp.Classes.Core;
+using Spectre.Console;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
@@ -32,5 +33,17 @@ internal partial class Program
         var setup = provider.GetService<SetupServices>();
         setup.GetConnectionStrings();
         setup.GetEntitySettings();
+    }
+
+    private static Table CreateTable()
+    {
+        return new Table()
+            .RoundedBorder().BorderColor(Color.LightSlateGrey)
+            .AddColumn("[b]Name[/]")
+            .AddColumn("[b]Index[/]")
+            .AddColumn("[b]Start Index[/]")
+            .AddColumn("[b]End Index[/]")
+            .Alignment(Justify.Center)
+            .Title("[white on chartreuse3]Month indexing[/]");
     }
 }

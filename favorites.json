@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "items": [
+    {
+      "name": "ProductItem.cs",
+      "path": "BogusLibrary\\Models\\ProductItem.cs"
+    },
+    {
+      "name": "SelectOptions.cs",
+      "path": "NorthWind2024LocalLibrary\\Classes\\SelectOptions.cs"
+    },
+    {
+      "name": "WineOperations.cs",
+      "path": "EnumHasConversionDapper\\Classes\\WineOperations.cs"
+    }
+  ]
+}

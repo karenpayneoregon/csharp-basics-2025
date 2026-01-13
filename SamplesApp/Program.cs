@@ -1,10 +1,12 @@
-﻿using SamplesApp.Classes.Basics;
+﻿using ConsoleConfigurationLibrary.Classes;
+using SamplesApp.Classes.Basics;
 using SamplesApp.Classes.Extensions;
 using SamplesApp.Classes.Intermediate;
 using SamplesApp.Classes.StatementsBasics;
 using SamplesApp.Models;
 using Spectre.Console;
 using System.Globalization;
+using StringSamples = SamplesApp.Classes.Basics.StringSamples;
 
 namespace SamplesApp;
 
@@ -22,13 +24,28 @@ internal partial class Program
         //    Console.WriteLine(value);
         //}
 
-        SwitchSamples.Greeting();
-        Console.WriteLine();
-        SwitchSamples.GradesTuple();
-        Console.WriteLine();
-        SwitchSamples.GroupBook();
+        //SwitchSamples.Greeting();
+        //Console.WriteLine();
+        //SwitchSamples.GradesTuple();
+        //Console.WriteLine();
+        //SwitchSamples.GroupBook();
+        //StringSamples.Ranges();
+
+        StringSamples.StringContains();
+        StringSamples.StringContainsCaseInsensitive();
+
+
 
         SpectreConsoleHelpers.ExitPrompt();
+    }
+
+    private static void GenerateMonthTable()
+    {
+        var monthContainer = StringSamples.RangeDetails(StringSamples.MonthNames());
+        var table = CreateTable();
+        monthContainer.ForEach(x => table.AddRow(x.ItemArray));
+
+        AnsiConsole.Write(table);
     }
 
     private static void IsEvenDemo()
