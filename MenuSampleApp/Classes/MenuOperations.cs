@@ -8,6 +8,17 @@ namespace MenuSampleApp.Classes;
 class MenuOperations
 {
     
+    /// <summary>
+    /// Creates and configures a selection prompt for the main menu of the application.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="Spectre.Console.SelectionPrompt{T}"/> of type <see cref="MenuSampleApp.Models.MenuItem"/> 
+    /// containing the menu options for the application.
+    /// </returns>
+    /// <remarks>
+    /// The selection prompt includes options for viewing the table count in the NorthWind database, 
+    /// viewing categories, and exiting the application. Each menu item is associated with a specific action.
+    /// </remarks>
     public static SelectionPrompt<MenuItem> MainSelectionPrompt()
     {
         SelectionPrompt<MenuItem> menu = new()

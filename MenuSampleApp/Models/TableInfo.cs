@@ -1,4 +1,5 @@
 ﻿namespace MenuSampleApp.Models;
+
 /// <summary>
 /// Represents information about a database table, including its schema, name, and row count.
 /// </summary>

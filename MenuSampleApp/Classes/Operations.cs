@@ -8,11 +8,30 @@ namespace MenuSampleApp.Classes;
 internal class Operations
 {
 
+    /// <summary>
+    /// Represents the name of the database extracted from the application's main connection string.
+    /// </summary>
+    /// <remarks>
+    /// This field is initialized using the connection string provided by the application's configuration.
+    /// It is used in various operations to verify the existence of the database and to perform database-related tasks.
+    /// </remarks>
     private static readonly string databaseName = DataOperations.InitialCatalogFromConnectionString(AppConnections.Instance.MainConnection);
-    private static bool DatabaseExists()
-    {
-        return DataOperations.ExpressDatabaseExists(databaseName);
-    }
+    
+    /// <summary>
+    /// Checks whether the database specified in the application's main connection string exists.
+    /// </summary>
+    /// <returns>
+    /// <see langword="true"/> if the database exists; otherwise, <see langword="false"/>.
+    /// </returns>
+    /// <remarks>
+    /// This method utilizes the database name extracted from the application's main connection string
+    /// and verifies its existence by querying the master database.
+    /// </remarks>
+    /// <exception cref="SqlException">
+    /// Thrown if there is an issue connecting to the database or executing the SQL command.
+    /// </exception>
+    private static bool DatabaseExists() => DataOperations.ExpressDatabaseExists(databaseName);
+
     /// <summary>
     /// Displays the count of tables and their respective row counts in the NorthWind database.
     /// </summary>
