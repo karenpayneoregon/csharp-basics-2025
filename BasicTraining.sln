@@ -116,6 +116,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Menues", "Menues", "{80D448
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuSampleApp", "MenuSampleApp\MenuSampleApp.csproj", "{A049282B-E507-4DE6-98D2-1FAF802BF5E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuImageSampleApp", "MenuImageSampleApp\MenuImageSampleApp.csproj", "{B7C8A3D0-0453-4F77-AB4E-2788D16B41F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -210,6 +212,10 @@ Global
 		{A049282B-E507-4DE6-98D2-1FAF802BF5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A049282B-E507-4DE6-98D2-1FAF802BF5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A049282B-E507-4DE6-98D2-1FAF802BF5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7C8A3D0-0453-4F77-AB4E-2788D16B41F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C8A3D0-0453-4F77-AB4E-2788D16B41F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C8A3D0-0453-4F77-AB4E-2788D16B41F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C8A3D0-0453-4F77-AB4E-2788D16B41F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,6 +249,7 @@ Global
 		{C91A9575-1816-407C-AE5E-10C67B2F22DE} = {557E87EB-119E-AD28-5F9F-664D16CE5F67}
 		{80D44862-7B46-0104-D5B8-BA2E0ECF7139} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 		{A049282B-E507-4DE6-98D2-1FAF802BF5E3} = {80D44862-7B46-0104-D5B8-BA2E0ECF7139}
+		{B7C8A3D0-0453-4F77-AB4E-2788D16B41F0} = {80D44862-7B46-0104-D5B8-BA2E0ECF7139}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92F76479-8CB2-47A3-83B6-C6A1BEB1D29D}
