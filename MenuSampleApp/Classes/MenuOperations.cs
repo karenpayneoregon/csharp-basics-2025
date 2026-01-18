@@ -27,6 +27,7 @@ class MenuOperations
         };
 
         menu.Title("[cyan]Select[/]");
+        menu.EnableSearch();
         menu.AddChoices(new List<MenuItem>()
         {
             new () 
