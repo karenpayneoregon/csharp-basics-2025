@@ -12,6 +12,6 @@ public class MenuItem
 
     public int Id { get; set; }
     public required string Text { get; set; }
-    public Action Action;
+    public required Action Action { get; set; }
     public override string ToString() => Text;
 }
