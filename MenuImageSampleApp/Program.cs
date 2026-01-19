@@ -10,7 +10,7 @@ internal partial class Program
         while (true)
         {
             Console.Clear();
-            var menuItem = AnsiConsole.Prompt(MenuOperations.MainSelectionPrompt());
+            var menuItem = AnsiConsole.Prompt(MenuOperations.SelectionPrompt());
             menuItem.Action(menuItem.Id);
         }
     }

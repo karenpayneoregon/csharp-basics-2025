@@ -17,7 +17,7 @@ public static class MenuOperations
     /// sets its title, enables search functionality, and populates it with menu items 
     /// retrieved from the <see cref="MenuItemRepository.GetCategoryMenuItems"/> method.
     /// </remarks>
-    public static SelectionPrompt<MenuItem> MainSelectionPrompt()
+    public static SelectionPrompt<MenuItem> SelectionPrompt()
     {
         SelectionPrompt<MenuItem> menu = new()
         {
