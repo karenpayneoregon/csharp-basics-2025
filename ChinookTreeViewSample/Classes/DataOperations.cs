@@ -14,16 +14,20 @@ internal class DataOperations
     /// <summary>
     /// Retrieves a list of albums and their associated tracks for a specific artist.
     /// </summary>
-    /// <remarks>
-    /// This method queries the database to fetch albums and their tracks for the artist
-    /// with a predefined ID (currently set to 22). The data is grouped by album and 
-    /// transformed into a list of <see cref="AlbumDto"/> objects, each containing album details
-    /// and a list of associated tracks.
-    /// </remarks>
+    /// <param name="id">
+    /// The unique identifier of the artist for whom albums and tracks are to be retrieved. 
+    /// Defaults to 22 if no value is provided.
+    /// </param>
     /// <returns>
     /// A list of <see cref="AlbumDto"/> objects, where each object represents an album
     /// and its associated tracks.
     /// </returns>
+    /// <remarks>
+    /// This method queries the database to fetch albums and their tracks for the artist
+    /// with the specified ID. The data is grouped by album and transformed into a list
+    /// of <see cref="AlbumDto"/> objects, each containing album details and a list of
+    /// associated tracks.
+    /// </remarks>
     public static List<AlbumDto> Album(int id = 22)
     {
         const string sql = """
