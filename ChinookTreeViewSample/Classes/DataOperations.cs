@@ -31,22 +31,23 @@ internal class DataOperations
     public static List<AlbumDto> Album(int id = 22)
     {
         const string sql = """
-                           SELECT Artist.ArtistId,
-                                  Artist.[Name],
-                                  Title,
-                                  Track.[Name] AS TrackName,
-                                  Album.AlbumId
+                           SELECT  Artist.ArtistId,
+                                   Artist.[Name],
+                                   Title,
+                                   Track.[Name] AS TrackName,
+                                   Album.AlbumId
                            FROM dbo.Artist
                                INNER JOIN dbo.Album
                                    ON Artist.ArtistId = Album.ArtistId
                                INNER JOIN dbo.Track
                                    ON Album.AlbumId = Track.AlbumId
-                           WHERE (Artist.ArtistId = 22);
+                           WHERE Artist.ArtistId = @ArtistId;
                            """;
+
 
         using IDbConnection connection = new SqlConnection(AppConnections.Instance.MainConnection);
         
-        var rows = connection.Query<AlbumTrackRow>(
+            var rows = connection.Query<AlbumTrackRow>(
             sql,
             new { ArtistId = id }
         );
