@@ -24,7 +24,7 @@ internal class DataOperations
     /// A list of <see cref="AlbumDto"/> objects, where each object represents an album
     /// and its associated tracks.
     /// </returns>
-    public static List<AlbumDto> Album()
+    public static List<AlbumDto> Album(int id = 22)
     {
         const string sql = """
                            SELECT Artist.ArtistId,
@@ -44,7 +44,7 @@ internal class DataOperations
         
         var rows = connection.Query<AlbumTrackRow>(
             sql,
-            new { ArtistId = 22 }
+            new { ArtistId = id }
         );
 
         return rows
