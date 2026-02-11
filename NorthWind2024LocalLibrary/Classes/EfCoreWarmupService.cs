@@ -38,5 +38,14 @@ public class EfCoreWarmupService(IServiceProvider serviceProvider) : IHostedServ
         
     }
 
+    /// <summary>
+    /// Stops the hosted service gracefully.
+    /// </summary>
+    /// <param name="cancellationToken">
+    /// A <see cref="CancellationToken"/> that can be used to signal the stop operation should be aborted.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task"/> that represents the asynchronous operation of stopping the service.
+    /// </returns>
     public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 }
