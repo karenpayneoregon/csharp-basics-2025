@@ -251,17 +251,15 @@ internal class BasicStatements
 
         List<Human> humans = HumanGenerator.Create(20);
 
-
-        foreach (var human in humans)
+        foreach (var h in humans)
         {
-            if (human.BirthDay.HasValue)
+            if (h.BirthDay.HasValue)
             {
-                var year = human.BirthDay.Value.Year;
+                var year = h.BirthDay.Value.Year;
 
-                // middle of the road if statement
                 if (year is >= 1950 and <= 1980)
                 {
-                    Console.WriteLine($"{human.FirstName,-15}{human.LastName,-15}{human.BirthDay,-12:MM/dd/yyyy}{human.BirthDay.GetAge()}");
+                    Console.WriteLine($"{h.FirstName,-15}{h.LastName,-15}{h.BirthDay,-12:MM/dd/yyyy}{h.BirthDay.GetAge()}");
                 }
             }
         }
@@ -273,12 +271,11 @@ internal class BasicStatements
 
         List<Human> humans = HumanGenerator.Create(20);
 
-        foreach (var human in humans)
+        foreach ((int Index, Human h) in humans.Index())
         {
-            // Pattern matching with property pattern and relational patterns
-            if (human.BirthDay is { Year: >= 1950 and <= 1980 })
+            if (h.BirthDay is { Year: >= 1950 and <= 1980 })
             {
-                Console.WriteLine($"{human.FirstName,-15}{human.LastName,-15}{human.BirthDay,-12:MM/dd/yyyy}{human.BirthDay.GetAge()}");
+                Console.WriteLine($"{h.FirstName,-15}{h.LastName,-15}{h.BirthDay,-12:MM/dd/yyyy}{h.BirthDay.GetAge()}");
             }
         }
     }

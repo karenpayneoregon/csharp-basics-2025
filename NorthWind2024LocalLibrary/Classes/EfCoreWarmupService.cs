@@ -12,6 +12,17 @@ namespace NorthWind2024LocalLibrary.Classes;
 /// </summary>
 public class EfCoreWarmupService(IServiceProvider serviceProvider) : IHostedService
 {
+    /// <summary>
+    /// Starts the hosted service to warm up Entity Framework Core by initializing the model
+    /// and executing a lightweight query. This ensures that query compilation and model initialization
+    /// are performed during application startup, improving runtime performance.
+    /// </summary>
+    /// <param name="cancellationToken">
+    /// A <see cref="CancellationToken"/> that can be used to cancel the warm-up process.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task"/> that represents the asynchronous operation.
+    /// </returns>
     public async Task StartAsync(CancellationToken cancellationToken)
     {
         using (var scope = serviceProvider.CreateScope())

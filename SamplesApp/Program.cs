@@ -6,6 +6,7 @@ using SamplesApp.Classes.StatementsBasics;
 using SamplesApp.Models;
 using Spectre.Console;
 using System.Globalization;
+using SamplesApp.Classes.Advance;
 using StringSamples = SamplesApp.Classes.Basics.StringSamples;
 
 namespace SamplesApp;
@@ -31,9 +32,15 @@ internal partial class Program
         //SwitchSamples.GroupBook();
         //StringSamples.Ranges();
 
-        StringSamples.StringContains();
-        StringSamples.StringContainsCaseInsensitive();
+        //StringSamples.StringContains();
+        //StringSamples.StringContainsCaseInsensitive();
 
+        
+        List<double> temperatures = [15.0, 25.0, 30, 35, 45, 100, 102];
+        foreach (var temperature in temperatures)
+        {
+            Console.WriteLine($"{temperature, -4} => {temperature.ClassifyTemperature()}");
+        }
 
 
         SpectreConsoleHelpers.ExitPrompt();

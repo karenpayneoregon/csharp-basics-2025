@@ -2,6 +2,7 @@
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using Serilog;
 
 namespace MenuImageSampleApp.Classes;
 
@@ -33,13 +34,23 @@ public sealed class CategoryPhotoExporter
         var ext = string.IsNullOrWhiteSpace(dto.Ext) ? ".bin" : dto.Ext.Trim();
         if (!ext.StartsWith(".", StringComparison.Ordinal))
         {
-            ext = "." + ext;
+            ext = $".{ext}";
         }
 
-        string safeName = MakeSafeFileName(dto.Name ?? $"Category_{categoryId}");
-        string fullPath = Path.Combine(outputDirectory, $"{safeName}{ext}");
+        var fullPath = string.Empty;
+        
+        try
+        {
+            var safeName = MakeSafeFileName(dto.Name ?? $"Category_{categoryId}");
+            fullPath = Path.Combine(outputDirectory, $"{safeName}{ext}");
 
-        File.WriteAllBytes(fullPath, dto.Photo);
+            File.WriteAllBytes(fullPath, dto.Photo);
+        }
+        catch (Exception e)
+        {
+            Log.Error(e,"Error exporting photo for category id {CategoryId}", categoryId);
+        }
+        
         return fullPath;
     }
 
@@ -66,8 +77,8 @@ public sealed class CategoryPhotoExporter
                            WHERE Id = @Id;
                            """;
 
-        using IDbConnection conn = new SqlConnection(AppConnections.Instance.MainConnection);
-        return conn.QuerySingleOrDefault<CategoryPhotoDto>(sql, new { Id = categoryId });
+        using IDbConnection cn = new SqlConnection(AppConnections.Instance.MainConnection);
+        return cn.QuerySingleOrDefault<CategoryPhotoDto>(sql, new { Id = categoryId });
     }
 
     /// <summary>

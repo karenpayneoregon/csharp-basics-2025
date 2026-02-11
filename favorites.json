@@ -2,6 +2,10 @@
   "version": 2,
   "items": [
     {
+      "name": "Index.cshtml.cs",
+      "path": "WebApplication1\\Pages\\Index.cshtml.cs"
+    },
+    {
       "name": "ProductItem.cs",
       "path": "BogusLibrary\\Models\\ProductItem.cs"
     },

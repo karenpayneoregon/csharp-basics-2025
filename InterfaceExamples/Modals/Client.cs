@@ -18,5 +18,7 @@ public partial class Client : INotifyPropertyChanged, IPerson
     public partial string FirstName { get; set; }
     public partial string LastName { get; set; }
     public partial Gender? Gender { get; set; }
+    public partial bool Active { get; set; }
+    
 }
 

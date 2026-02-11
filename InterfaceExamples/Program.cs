@@ -2,18 +2,23 @@
 using InterfaceExamples.Interfaces;
 using InterfaceExamples.Modals;
 using Spectre.Console;
-using System.Diagnostics;
 using SpectreConsoleLibrary;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 using static SpectreConsoleLibrary.SpectreConsoleHelpers;
 
 namespace InterfaceExamples;
 internal partial class Program
 {
+
     static void Main(string[] args)
     {
+
         //Basics();
         //FilterByModal();
         //GroupByGender();
+
+
 
         ExitPrompt();
     }
@@ -39,11 +44,11 @@ internal partial class Program
         {
             if (item is Person person)
             {
-                AnsiConsole.MarkupLine($"[yellow]Person:[/] {person.FirstName} {person.LastName}");
+                AnsiConsole.MarkupLine($"[yellow]Person:[/] {person.FirstName, -10} {person.LastName, -10}{person.Gender}");
             }
             else if (item is Client client)
             {
-                AnsiConsole.MarkupLine($"[green]Client:[/] {client.FirstName} {client.LastName}");
+                AnsiConsole.MarkupLine($"[green]Client:[/] {client.FirstName, -10} {client.LastName, -10} {client.Gender,-10} {client.Active}");
             }
         }
     }
@@ -102,7 +107,7 @@ internal partial class Program
     /// <returns>An <see cref="IEnumerable{T}"/> containing only the <see cref="Client"/> objects from the input collection.</returns>
     private static IEnumerable<IPerson> FilterClients(IEnumerable<IPerson> people) 
         => people.Where(p => p is Client);
-
-
+    
+  
 }
 
