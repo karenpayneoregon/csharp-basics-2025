@@ -2,6 +2,10 @@
   "version": 2,
   "items": [
     {
+      "name": "EfCoreWarmupService.cs",
+      "path": "NorthWind2024LocalLibrary\\Classes\\EfCoreWarmupService.cs"
+    },
+    {
       "name": "Index.cshtml.cs",
       "path": "WebApplication1\\Pages\\Index.cshtml.cs"
     },

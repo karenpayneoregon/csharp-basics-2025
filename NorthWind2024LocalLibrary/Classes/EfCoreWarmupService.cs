@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using NorthWind2024LocalLibrary.Data;
 using Microsoft.Extensions.Hosting;
 
+/*
+ * Newer version
+ * https://github.com/karenpayneoregon/fluentValidation-asp-net/blob/master/FluentWebApplication/Classes/EntityCoreWarmupService.cs
+ */
 namespace NorthWind2024LocalLibrary.Classes;
 
 /// <summary>
@@ -35,7 +39,6 @@ public class EfCoreWarmupService(IServiceProvider serviceProvider) : IHostedServ
         }
         
         await Task.CompletedTask;
-        
     }
 
     /// <summary>
@@ -47,5 +50,8 @@ public class EfCoreWarmupService(IServiceProvider serviceProvider) : IHostedServ
     /// <returns>
     /// A <see cref="Task"/> that represents the asynchronous operation of stopping the service.
     /// </returns>
-    public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        return Task.CompletedTask;
+    }
 }
