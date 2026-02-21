@@ -31,14 +31,12 @@ internal partial class Program
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
     
-    private static string Colorize(string input)
-    {
-        return input switch
+    private static string Colorize(string input) =>
+        input switch
         {
             { } s when s.Contains("active", StringComparison.OrdinalIgnoreCase) => "[green]Active[/]",
             { } s when s.Contains("eol", StringComparison.OrdinalIgnoreCase) => "[red]eol[/]",
             { } s when s.Contains("preview", StringComparison.OrdinalIgnoreCase) => "[yellow]preview[/]",
             _ => input,
         };
-    }
 }
