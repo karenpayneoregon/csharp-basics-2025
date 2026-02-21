@@ -33,6 +33,13 @@ public sealed class ReleaseIndexItem
     [JsonPropertyName("product")]
     public string? Product { get; set; }
 
+    /// <summary>
+    /// Gets or sets the support phase of the release.
+    /// </summary>
+    /// <remarks>
+    /// The support phase indicates the current lifecycle stage of the release, 
+    /// such as "active", "preview", or "eol" (end of life).
+    /// </remarks>
     [JsonPropertyName("support-phase")]
     public string? SupportPhase { get; set; }
 
