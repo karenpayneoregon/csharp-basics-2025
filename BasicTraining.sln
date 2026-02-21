@@ -122,6 +122,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tree views", "Tree views", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinookTreeViewSample", "ChinookTreeViewSample\ChinookTreeViewSample.csproj", "{72B204B9-3305-468D-AA3B-AC0EC36EADB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseServiceApp", "ReleaseServiceApp\ReleaseServiceApp.csproj", "{B0782C73-CFF1-4A11-AB2C-7215D5ED0A0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -224,6 +226,10 @@ Global
 		{72B204B9-3305-468D-AA3B-AC0EC36EADB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B204B9-3305-468D-AA3B-AC0EC36EADB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B204B9-3305-468D-AA3B-AC0EC36EADB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0782C73-CFF1-4A11-AB2C-7215D5ED0A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0782C73-CFF1-4A11-AB2C-7215D5ED0A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0782C73-CFF1-4A11-AB2C-7215D5ED0A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0782C73-CFF1-4A11-AB2C-7215D5ED0A0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -260,6 +266,7 @@ Global
 		{B7C8A3D0-0453-4F77-AB4E-2788D16B41F0} = {80D44862-7B46-0104-D5B8-BA2E0ECF7139}
 		{1141A1BD-0BDF-3773-CF5D-6B31A8440ACD} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 		{72B204B9-3305-468D-AA3B-AC0EC36EADB7} = {1141A1BD-0BDF-3773-CF5D-6B31A8440ACD}
+		{B0782C73-CFF1-4A11-AB2C-7215D5ED0A0A} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92F76479-8CB2-47A3-83B6-C6A1BEB1D29D}
